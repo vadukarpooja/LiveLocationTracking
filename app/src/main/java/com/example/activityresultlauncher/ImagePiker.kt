@@ -19,7 +19,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
-internal class LoginActivity : AppCompatActivity() {
+internal class ImagePiker : AppCompatActivity() {
     var required_permissions = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
@@ -99,7 +99,7 @@ internal class LoginActivity : AppCompatActivity() {
      */
     fun requestPermissionStorageImage() {
         if (ContextCompat.checkSelfPermission(
-                this@LoginActivity,
+                this@ImagePiker,
                 required_permissions[0]
             ) == PackageManager.PERMISSION_GRANTED
         ) {
@@ -130,7 +130,7 @@ internal class LoginActivity : AppCompatActivity() {
      */
     private fun requestPermissionCameraAccess() {
         if (ContextCompat.checkSelfPermission(
-                this@LoginActivity,
+                this@ImagePiker,
                 required_permissions[1]
             ) == PackageManager.PERMISSION_GRANTED
         ) {
