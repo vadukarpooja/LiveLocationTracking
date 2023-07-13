@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ActivityResultLauncher</string>
+    <string name="MAPS_API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCxaYCyerh-8mzrLLY_8jgdrnUfBTKz4eY</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable baseline_my_location_24
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btn
+id btn_g
+id image_c
+id image_g
+id imgLocation
+id map_fragment
+id map_view
+id title
+layout activity_location
+layout activity_main
+layout fragment_map
+mipmap ic_launcher
+mipmap ic_launcher_round
+string MAPS_API_KEY
+string app_name
+string hello_blank_fragment
+style Base.Theme.ActivityResultLauncher
+style Theme.ActivityResultLauncher
+xml backup_rules
+xml data_extraction_rules

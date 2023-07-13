@@ -31,6 +31,7 @@ internal class ImagePiker : AppCompatActivity() {
     var img: ImageView? = null
     var imgG: ImageView? = null
     var btnG: Button? = null
+    var location:ImageView?= null
     var uri_for_camera: Uri? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,15 @@ internal class ImagePiker : AppCompatActivity() {
         img = findViewById<View>(R.id.image_c) as ImageView
         imgG = findViewById<View>(R.id.image_g) as ImageView
         btnG = findViewById<View>(R.id.btn_g) as Button
+        location = findViewById<View>(R.id.imgLocation)as ImageView
+
+        location!!.setOnClickListener {
+            val intent = Intent(this,LocationActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
         if (!is_storage_image_permitted) {
             requestPermissionStorageImage()
         }
@@ -50,9 +60,8 @@ internal class ImagePiker : AppCompatActivity() {
         }
         btn!!.setOnClickListener {
             if (is_camera_access_permitted) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    openCamera()
-                }
+                openCamera()
+
             } else {
                 requestPermissionCameraAccess()
             }
@@ -74,7 +83,7 @@ internal class ImagePiker : AppCompatActivity() {
     /**
      * Camera launcher
      */
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+
     fun openCamera() {
         val contentValues = ContentValues()
         contentValues.put(MediaStore.Images.Media.TITLE, "Test")
