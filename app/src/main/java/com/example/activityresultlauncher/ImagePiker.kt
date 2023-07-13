@@ -6,33 +6,29 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 internal class ImagePiker : AppCompatActivity() {
-    var required_permissions = arrayOf(
+    private var requiredPermissions = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
     )
-    var is_storage_image_permitted = false
-    var is_camera_access_permitted = false
-    var TAG = "Permission"
-    var btn: Button? = null
-    var img: ImageView? = null
-    var imgG: ImageView? = null
-    var btnG: Button? = null
-    var location:ImageView?= null
-    var uri_for_camera: Uri? = null
+    private var isStorageImagePermitted = false
+    private var isCameraAccessPermitted = false
+    private var btn: Button? = null
+    private var img: ImageView? = null
+    private var imgG: ImageView? = null
+    private var btnG: Button? = null
+    private var location:ImageView?= null
+    private var uriForCamera: Uri? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +46,7 @@ internal class ImagePiker : AppCompatActivity() {
 
         }
 
-        if (!is_storage_image_permitted) {
+        if (!isStorageImagePermitted) {
             requestPermissionStorageImage()
         }
         btnG!!.setOnClickListener {
@@ -59,7 +55,7 @@ internal class ImagePiker : AppCompatActivity() {
             galleryActivityResultLauncher.launch(galleryIntent)
         }
         btn!!.setOnClickListener {
-            if (is_camera_access_permitted) {
+            if (isCameraAccessPermitted) {
                 openCamera()
 
             } else {
@@ -71,12 +67,12 @@ internal class ImagePiker : AppCompatActivity() {
     /**
      * gallery launcher
      */
-    var galleryActivityResultLauncher = registerForActivityResult<Intent, ActivityResult>(
+    private var galleryActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            val image_uri = result.data!!.data
-            imgG!!.setImageURI(image_uri)
+            val imageUri = result.data!!.data
+            imgG!!.setImageURI(imageUri)
         }
     }
 
@@ -84,51 +80,51 @@ internal class ImagePiker : AppCompatActivity() {
      * Camera launcher
      */
 
-    fun openCamera() {
+    private fun openCamera() {
         val contentValues = ContentValues()
         contentValues.put(MediaStore.Images.Media.TITLE, "Test")
         contentValues.put(MediaStore.Images.Media.DESCRIPTION, "Captured by Test")
-        uri_for_camera =
+        uriForCamera =
             contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri_for_camera)
-        launcher_for_camera.launch(cameraIntent)
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriForCamera)
+        launcherForCamera.launch(cameraIntent)
     }
 
-    private val launcher_for_camera =
-        registerForActivityResult<Intent, ActivityResult>(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val launcherForCamera =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
-                Log.e(TAG, "onActivityResult: $uri_for_camera")
-                img!!.setImageURI(uri_for_camera)
+                Log.e(javaClass.simpleName, "onActivityResult: $uriForCamera")
+                img!!.setImageURI(uriForCamera)
             }
         }
 
     /**
      * read storage media images start
      */
-    fun requestPermissionStorageImage() {
+    private fun requestPermissionStorageImage() {
         if (ContextCompat.checkSelfPermission(
                 this@ImagePiker,
-                required_permissions[0]
+                requiredPermissions[0]
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            Log.e(TAG, required_permissions[0] + "Granted")
-            is_storage_image_permitted = true
+            Log.e(javaClass.simpleName, requiredPermissions[0] + "Granted")
+            isStorageImagePermitted = true
             requestPermissionCameraAccess()
         } else {
-            required_permissions_launcher_storage_images.launch(required_permissions[0])
+            requiredPermissionsLauncherStorageImages.launch(requiredPermissions[0])
         }
     }
 
-    private val required_permissions_launcher_storage_images =
-        registerForActivityResult<String, Boolean>(
+    private val requiredPermissionsLauncherStorageImages =
+        registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
-            is_storage_image_permitted = if (isGranted) {
-                Log.e(TAG, required_permissions[0] + "Granted")
+            isStorageImagePermitted = if (isGranted) {
+                Log.e(javaClass.simpleName, requiredPermissions[0] + "Granted")
                 true
             } else {
-                Log.e(TAG, required_permissions[0] + "Not Granted")
+                Log.e(javaClass.simpleName, requiredPermissions[0] + "Not Granted")
                 false
             }
             requestPermissionCameraAccess()
@@ -140,26 +136,26 @@ internal class ImagePiker : AppCompatActivity() {
     private fun requestPermissionCameraAccess() {
         if (ContextCompat.checkSelfPermission(
                 this@ImagePiker,
-                required_permissions[1]
+                requiredPermissions[1]
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            Log.e(TAG, required_permissions[1] + "Granted")
-            is_storage_image_permitted = true
-            is_camera_access_permitted = true
+            Log.e(javaClass.simpleName, requiredPermissions[1] + "Granted")
+            isStorageImagePermitted = true
+            isCameraAccessPermitted = true
         } else {
-            request_permission_launcher_camera_access.launch(required_permissions[1])
+            requestPermissionLauncherCameraAccess.launch(requiredPermissions[1])
         }
     }
 
-    private val request_permission_launcher_camera_access =
-        registerForActivityResult<String, Boolean>(
+    private val requestPermissionLauncherCameraAccess =
+        registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
-            is_camera_access_permitted = if (isGranted) {
-                Log.e(TAG, required_permissions[1] + "Granted")
+            isCameraAccessPermitted = if (isGranted) {
+                Log.e(javaClass.simpleName, requiredPermissions[1] + "Granted")
                 true
             } else {
-                Log.e(TAG, required_permissions[1] + "Not Granted")
+                Log.e(javaClass.simpleName, requiredPermissions[1] + "Not Granted")
                 false
             }
         }

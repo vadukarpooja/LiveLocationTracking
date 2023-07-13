@@ -5,24 +5,20 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 
 class ApplicationClass : Application() {
-    lateinit var activity: AppCompatActivity
-    lateinit var context: Context
+    private lateinit var activity: AppCompatActivity
+    private lateinit var context: Context
 
     override fun onCreate() {
         super.onCreate()
-        activity = getactivity()
-        context = getApplicationContext()
+        activity = getActivity()
+        context = applicationContext
     }
 
     fun get(context: Context): ApplicationClass {
         return context.applicationContext as ApplicationClass
     }
 
-    fun setActity(activity: AppCompatActivity) {
-        this.activity = activity
-    }
-
-    fun getactivity(): AppCompatActivity {
+    private fun getActivity(): AppCompatActivity {
         return this.activity
     }
 

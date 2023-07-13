@@ -1,4 +1,4 @@
-package com.example.activityresultlauncher;
+package com.example.activityresultlauncher
 
 
 import android.app.AlertDialog
@@ -9,19 +9,15 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -30,12 +26,12 @@ import com.google.android.gms.maps.model.MarkerOptions
 class LocationActivity : AppCompatActivity(), OnMapReadyCallback , LocationInterface{
 
 
-    var latitude_current = 0.0
-    var longitude_current = 0.0
+    private var latitudeCurrent = 0.0
+    private var longitudeCurrent = 0.0
 
     private lateinit var mMap: GoogleMap
     private var mCurrLocationMarker: Marker? = null
-    lateinit var applicationClass: ApplicationClass
+    private lateinit var applicationClass: ApplicationClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,12 +66,12 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback , LocationInter
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         val markerOptions = MarkerOptions()
-        mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN;
-        mMap.uiSettings.isZoomControlsEnabled = true;
-        mMap.uiSettings.isZoomGesturesEnabled = true;
-        mMap.uiSettings.isCompassEnabled = true;
+        mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isZoomGesturesEnabled = true
+        mMap.uiSettings.isCompassEnabled = true
         // Setting a click event handler for the map
-        mMap.setOnMapClickListener(OnMapClickListener { latLng -> // Creating a marker
+        mMap.setOnMapClickListener { latLng -> // Creating a marker
 
 
             // Setting the position for the marker
@@ -89,11 +85,11 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback , LocationInter
             mMap.clear()
 
             // Animating to the touched position
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,20f))
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
 
             // Placing a marker on the touched position
             mMap.addMarker(markerOptions)
-        })
+        }
 
     }
 
@@ -205,7 +201,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback , LocationInter
         }
     }
 
-    var activityResultLauncher = registerForActivityResult<Intent, ActivityResult>(
+   private var activityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == MY_PERMISSIONS_REQUEST_LOCATION) {
@@ -232,8 +228,8 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback , LocationInter
     }*/
 
     override fun onLocationChange(latitude: Double, longitude: Double) {
-        latitude_current = latitude
-        longitude_current = longitude
+        latitudeCurrent = latitude
+        longitudeCurrent = longitude
         Log.e(javaClass.simpleName, "LatLong" +
                 ": $latitude $longitude")
 

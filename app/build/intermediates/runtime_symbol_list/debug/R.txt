@@ -1777,6 +1777,7 @@ int color mtrl_textinput_focused_box_stroke_color 0x7f05023a
 int color mtrl_textinput_hovered_box_stroke_color 0x7f05023b
 int color notification_action_color_filter 0x7f05023c
 int color notification_icon_bg_color 0x7f05023d
+int color pink 0x7f050259
 int color primary_dark_material_dark 0x7f05023e
 int color primary_dark_material_light 0x7f05023f
 int color primary_material_dark 0x7f050240
@@ -3284,9 +3285,11 @@ int string error_icon_content_description 0x7f0e0037
 int string exposed_dropdown_menu_content_description 0x7f0e0038
 int string fab_transformation_scrim_behavior 0x7f0e0039
 int string fab_transformation_sheet_behavior 0x7f0e003a
+int string gallery 0x7f0e0097
 int string hello_blank_fragment 0x7f0e003b
 int string hide_bottom_view_on_scroll_behavior 0x7f0e003c
 int string icon_content_description 0x7f0e003d
+int string imagepiker 0x7f0e0098
 int string item_view_role_description 0x7f0e003e
 int string m3_ref_typeface_brand_display_regular 0x7f0e003f
 int string m3_ref_typeface_brand_medium 0x7f0e0040
@@ -3376,6 +3379,7 @@ int string path_password_eye_mask_visible 0x7f0e0093
 int string path_password_strike_through 0x7f0e0094
 int string search_menu_title 0x7f0e0095
 int string status_bar_notification_info_overflow 0x7f0e0096
+int string take_a_photo 0x7f0e0099
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style AndroidThemeColorAccentYellow 0x7f0f0002
