@@ -1,6 +1,8 @@
 package com.example.activityresultlauncher
 
+import android.location.Location
+
 interface LocationInterface {
 
-    fun  onLocationChange(latitude: Double, longitude: Double)
+    fun onLocationUpdate(location: Location?)
 }

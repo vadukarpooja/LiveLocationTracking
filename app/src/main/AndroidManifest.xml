@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -22,9 +21,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityResultLauncher"
         tools:targetApi="31">
+        <activity
+            android:name=".LocationTrackingActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAPS_API_KEY" />
+
         <activity
             android:name=".LocationActivity"
             android:exported="true" />
@@ -37,8 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <service
+            android:name=".LocationUpdatesService"
+            android:label="My Job Service Update "
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

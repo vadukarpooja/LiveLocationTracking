@@ -91,7 +91,7 @@ class Utils {
             Log.d(TAG, "${mLastLocation.longitude}")
 
             Log.e(TAG, "onLocationChanged: "+ "Location LatLng:-" + mLastLocation.latitude + " : " + mLastLocation.longitude )
-            locationInterface.onLocationChange(mLastLocation.latitude, mLastLocation.longitude)
+            locationInterface.onLocationUpdate(location)
 
             mFusedLocationProviderClient?.removeLocationUpdates(mLocationCallback)
         }

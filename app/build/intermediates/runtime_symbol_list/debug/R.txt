@@ -2803,6 +2803,7 @@ int id line3 0x7f0800f0
 int id linear 0x7f0800f1
 int id listMode 0x7f0800f2
 int id list_item 0x7f0800f3
+int id location 0x7f0801e8
 int id map_fragment 0x7f0800f4
 int id map_view 0x7f0800f5
 int id masked 0x7f0800f6
@@ -3134,6 +3135,7 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_location 0x7f0b001c
+int layout activity_location_tracking 0x7f0b0076
 int layout activity_main 0x7f0b001d
 int layout custom_dialog 0x7f0b001e
 int layout design_bottom_navigation_item 0x7f0b001f

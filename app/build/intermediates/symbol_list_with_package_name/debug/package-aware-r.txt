@@ -2804,6 +2804,7 @@ id line3
 id linear
 id listMode
 id list_item
+id location
 id map_fragment
 id map_view
 id masked
@@ -3135,6 +3136,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_location
+layout activity_location_tracking
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

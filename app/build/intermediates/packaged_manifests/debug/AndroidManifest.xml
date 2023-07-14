@@ -33,6 +33,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.ActivityResultLauncher" >
+        <activity
+            android:name="com.example.activityresultlauncher.LocationTrackingActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAPS_API_KEY" />
@@ -50,6 +54,10 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name="com.example.activityresultlauncher.LocationUpdatesService"
+            android:label="My Job Service Update "
+            android:permission="android.permission.BIND_JOB_SERVICE" />
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"

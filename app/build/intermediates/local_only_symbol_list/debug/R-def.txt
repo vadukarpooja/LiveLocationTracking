@@ -11,10 +11,12 @@ id btn_g
 id image_c
 id image_g
 id imgLocation
+id location
 id map_fragment
 id map_view
 id title
 layout activity_location
+layout activity_location_tracking
 layout activity_main
 layout fragment_map
 mipmap ic_launcher
