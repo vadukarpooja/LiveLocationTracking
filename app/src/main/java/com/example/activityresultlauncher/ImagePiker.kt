@@ -27,8 +27,9 @@ internal class ImagePiker : AppCompatActivity() {
     private var img: ImageView? = null
     private var imgG: ImageView? = null
     private var btnG: Button? = null
-    private var location:ImageView?= null
+    private var location: ImageView? = null
     private var uriForCamera: Uri? = null
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +38,10 @@ internal class ImagePiker : AppCompatActivity() {
         img = findViewById<View>(R.id.image_c) as ImageView
         imgG = findViewById<View>(R.id.image_g) as ImageView
         btnG = findViewById<View>(R.id.btn_g) as Button
-        location = findViewById<View>(R.id.imgLocation)as ImageView
+        location = findViewById<View>(R.id.imgLocation) as ImageView
 
         location!!.setOnClickListener {
-            val intent = Intent(this,LocationActivity::class.java)
+            val intent = Intent(this, LocationActivity::class.java)
             startActivity(intent)
             finish()
 

@@ -4,10 +4,12 @@ color black
 color pink
 color white
 drawable baseline_my_location_24
+drawable bg
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id btn
 id btn_g
+id idSearchView
 id image_c
 id image_g
 id imgLocation

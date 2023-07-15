@@ -24,8 +24,16 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-main-26:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-merged_res-24:/layout_activity_location_tracking.xml.flat",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-main-26:/layout/activity_location_tracking.xml"
+    },
+    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-merged_res-24:/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-main-26:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-merged_res-24:/drawable_bg.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-26:/drawable/bg.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-merged_res-24:/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -36,8 +44,8 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-main-26:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.activityresultlauncher.app-merged_res-24:/layout_activity_location_tracking.xml.flat",
-        "source": "com.example.activityresultlauncher.app-main-26:/layout/activity_location_tracking.xml"
+        "merged": "com.example.activityresultlauncher.app-merged_res-24:/layout_activity_location.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-26:/layout/activity_location.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0/com.example.activityresultlauncher.app-merged_res-24:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",

@@ -2471,6 +2471,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_my_location_24
+drawable bg
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2777,6 +2778,7 @@ id hybrid
 id icon
 id icon_group
 id icon_only
+id idSearchView
 id ifRoom
 id ignore
 id ignoreRequest

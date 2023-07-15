@@ -4,9 +4,10 @@ package com.example.activityresultlauncher.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -17,20 +18,24 @@ import java.lang.String;
 
 public final class ActivityLocationBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final SearchView idSearchView;
 
   @NonNull
   public final FragmentContainerView mapFragment;
 
-  private ActivityLocationBinding(@NonNull FrameLayout rootView,
-      @NonNull FragmentContainerView mapFragment) {
+  private ActivityLocationBinding(@NonNull ConstraintLayout rootView,
+      @NonNull SearchView idSearchView, @NonNull FragmentContainerView mapFragment) {
     this.rootView = rootView;
+    this.idSearchView = idSearchView;
     this.mapFragment = mapFragment;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +60,19 @@ public final class ActivityLocationBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.idSearchView;
+      SearchView idSearchView = ViewBindings.findChildViewById(rootView, id);
+      if (idSearchView == null) {
+        break missingId;
+      }
+
       id = R.id.map_fragment;
       FragmentContainerView mapFragment = ViewBindings.findChildViewById(rootView, id);
       if (mapFragment == null) {
         break missingId;
       }
 
-      return new ActivityLocationBinding((FrameLayout) rootView, mapFragment);
+      return new ActivityLocationBinding((ConstraintLayout) rootView, idSearchView, mapFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
