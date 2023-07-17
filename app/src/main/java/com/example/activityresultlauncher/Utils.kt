@@ -3,11 +3,15 @@ package com.example.activityresultlauncher
 import android.Manifest
 import android.app.Activity
 import android.content.Context
+import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -15,7 +19,12 @@ import com.google.android.gms.location.LocationRequest.Builder.IMPLICIT_MIN_UPDA
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.LocationSettingsResult
+import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.gms.location.Priority
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.TextureStyle
+import okhttp3.internal.graal.TargetJdk8WithJettyBootPlatform
 
 class Utils {
     companion object {
@@ -29,13 +38,15 @@ class Utils {
         private lateinit var mLocationRequest: LocationRequest
         private lateinit var locationInterface: LocationInterface
 
-
-
+        fun String?.toNullString(): String {
+            return this?.toString() ?: ""
+        }
 
          fun getLocationData(context: Context,activity: Activity) {
             locationInterface = (activity)as LocationInterface
             startLocationUpdates(context)
         }
+
 
         private fun startLocationUpdates(context: Context) {
          mLocationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
@@ -91,7 +102,7 @@ class Utils {
             Log.d(TAG, "${mLastLocation.longitude}")
 
             Log.e(TAG, "onLocationChanged: "+ "Location LatLng:-" + mLastLocation.latitude + " : " + mLastLocation.longitude )
-            locationInterface.onLocationUpdate(location)
+            locationInterface.onLocationUpdate(LatLng( location.latitude,location.longitude))
 
             mFusedLocationProviderClient?.removeLocationUpdates(mLocationCallback)
         }

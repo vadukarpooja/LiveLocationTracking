@@ -54,10 +54,10 @@
             android:value="@string/MAPS_API_KEY" />
 
         <activity
-            android:name="com.example.activityresultlauncher.LocationActivity"
+            android:name="com.example.activityresultlauncher.ImagePiker"
             android:exported="true" />
         <activity
-            android:name="com.example.activityresultlauncher.ImagePiker"
+            android:name="com.example.activityresultlauncher.LocationActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

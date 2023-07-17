@@ -78,7 +78,7 @@ class LocationUpdatesComponent(private var iLocationProvider: ILocationProvider?
      * Makes a request for location updates. Note that in this sample we merely log the
      * [SecurityException].
      */
-    private fun requestLocationUpdates() {
+     fun requestLocationUpdates() {
         Log.e(TAG, "Requesting location updates")
         try {
             mLocationRequest.let {

@@ -47,7 +47,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private var mCurrLocationMarker: Marker? = null
     lateinit var binding: ActivityLocationBinding
-
+    var locationUpdatesComponent:LocationUpdatesComponent? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,6 +93,8 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         } else {
+            /*val intentPermission = Intent(android.Manifest.permission.ACCESS_FINE_LOCATION)
+            activityResultLauncher.launch(intentPermission)*/
             checkLocationPermission()
         }
 
@@ -118,14 +120,13 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                     .setPositiveButton(
                         "OK"
                     ) { _, _ ->
-
                         requestLocationPermission()
                     }
                     .create()
                     .show()
             } else {
+               requestLocationPermission()
 
-                requestLocationPermission()
             }
         }
     }
@@ -144,7 +145,9 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                 android.Manifest.permission.ACCESS_COARSE_LOCATION
             ),
             MY_PERMISSIONS_REQUEST_LOCATION
+
         )
+
     }
     val list = ArrayList<LatLng>()
     @SuppressLint("HandlerLeak")
@@ -207,17 +210,18 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
                         startService(startServiceIntent)
+                        //locationUpdatesComponent!!.requestLocationUpdates()
                     } else {
                         requestLocationPermission()
                     }
 
                 } else if (!shouldShowRequestPermissionRationale(permissions[0])) {
 
-                    val intent = Intent(
+                     startActivity(Intent(
                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
                         Uri.fromParts("package", this.packageName, null),
-                    )
-                    activityResultLauncher.launch(intent)
+                    ))
+
 
                 } else {
                     requestLocationPermission()
@@ -253,8 +257,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
-
-    private var activityResultLauncher = registerForActivityResult(
+   /* private var activityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == MY_PERMISSIONS_REQUEST_LOCATION) {
@@ -270,7 +273,19 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             requestLocationPermission()
         }
 
+    }*/
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+        if (resultCode == RESULT_OK) {
+            Log.e(javaClass.simpleName, "onActivityResult: $RESULT_OK")
+           locationUpdatesComponent!!.requestLocationUpdates()
+
+        } else if (resultCode == RESULT_CANCELED) {
+            Log.e(javaClass.simpleName, "onActivityResult: $RESULT_CANCELED")
+        }
     }
+}
 
     private fun drawDashedPolyLine(mMap: GoogleMap, listOfPoints: ArrayList<LatLng>, color: Int) {
         /* Boolean to control drawing alternate lines */
@@ -301,22 +316,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 }
-/*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
-        if (resultCode == RESULT_OK) {
-            val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
-            val messengerIncoming = Messenger(mHandler)
-            startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
-            startService(startServiceIntent)
 
-           // locationUpdatesComponent.displayLocationSettingsRequest(this, this)
-
-        } else if (resultCode == RESULT_CANCELED) {
-
-        }
-    }
-}*/
 /* override fun onLocationUpdate(location: Location?) {
      if (location!=null){
          latitudeCurrent = location.latitude
