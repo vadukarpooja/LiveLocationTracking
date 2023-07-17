@@ -68,8 +68,9 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgLocation"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constrainedWidth="true"
         android:src="@drawable/baseline_my_location_24"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
