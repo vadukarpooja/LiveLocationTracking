@@ -6,4 +6,7 @@
     <string name="imagepiker">ImagePiker</string>
     <string name="gallery">Gallery</string>
     <string name="take_a_photo">Take a Photo</string>
+    <string name="sublocality">SubLocality : </string>
+    <string name="place">Place :  </string>
+    <string name="postalcode">PostalCode : </string>
 </resources>

@@ -33,7 +33,7 @@ class LocationUpdatesService:JobService(), LocationUpdatesComponent.ILocationPro
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         Log.e(TAG, "onStartCommand Service started")
         mActivityMessenger =
-            intent.getParcelableExtra(LocationTrackingActivity.MESSENGER_INTENT_KEY)
+            intent.getParcelableExtra(LocationActivity.MESSENGER_INTENT_KEY)
         /** hey request for location updates*/
         locationUpdatesComponent!!.onStart()
 

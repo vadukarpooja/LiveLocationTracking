@@ -5,19 +5,27 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.os.Messenger
 import android.provider.Settings
 import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.activityresultlauncher.databinding.ActivityLocationBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -26,6 +34,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
+import java.io.IOException
 
 
 class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -37,24 +46,30 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private var mCurrLocationMarker: Marker? = null
+    lateinit var binding: ActivityLocationBinding
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_location)
+        binding = ActivityLocationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         mHandler = IncomingMessageHandler()
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        /** Obtain the SupportMapFragment and get notified when the map is ready to be used.*/
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-
+        val searchLocation = findViewById<ImageView>(R.id.searchLocation)
+        searchLocation.setOnClickListener {
+            val intent = Intent(this,LocationTrackingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        /*val markerOptions = MarkerOptions()*/
         mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isZoomGesturesEnabled = true
@@ -80,28 +95,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             checkLocationPermission()
         }
-        /**
-        Setting a click event handler for the map
-         */
-        /*mMap.setOnMapClickListener { latLng -> // Creating a marker
-
-
-            // Setting the position for the marker
-            markerOptions.position(latLng)
-
-            // Setting the title for the marker.
-            // This will be displayed on taping the marker
-            markerOptions.title(latLng.latitude.toString() + " : " + latLng.longitude)
-
-            // Clears the previously touched position
-            mMap.clear()
-
-            // Animating to the touched position
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
-
-            // Placing a marker on the touched position
-            mMap.addMarker(markerOptions)
-        }*/
 
     }
 
@@ -265,12 +258,13 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == MY_PERMISSIONS_REQUEST_LOCATION) {
-            Log.e(javaClass.simpleName, "RESULT_OK: $RESULT_OK")
-            val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
-            val messengerIncoming = Messenger(mHandler)
-            startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
-            startService(startServiceIntent)
-
+            if (result.resultCode == RESULT_OK){
+                Log.e(javaClass.simpleName, "RESULT_OK: $RESULT_OK")
+                val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
+                val messengerIncoming = Messenger(mHandler)
+                startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
+                startService(startServiceIntent)
+            }
         } else if (result.resultCode == RESULT_CANCELED) {
             Log.e(javaClass.simpleName, "RESULT_CANCELED$RESULT_CANCELED")
             requestLocationPermission()

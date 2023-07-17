@@ -4,88 +4,102 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.os.Messenger
 import android.util.Log
+import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
+import com.example.activityresultlauncher.databinding.ActivityLocationTrackingBinding
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import java.io.IOException
 import java.text.DateFormat
 import java.util.Date
 
-class LocationTrackingActivity : AppCompatActivity() {
-    private var locationMsg: TextView? = null
+class LocationTrackingActivity : AppCompatActivity() , OnMapReadyCallback {
+    lateinit var binding: ActivityLocationTrackingBinding
 
     /** as google doc says*/
     /** Handler for incoming messages from the service.*/
-    private var mHandler: IncomingMessageHandler? = null
-
+    private lateinit var mMap: GoogleMap
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_location_tracking)
-        locationMsg = findViewById(R.id.location)
-        mHandler = IncomingMessageHandler()
+        binding = ActivityLocationTrackingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+       /* setContentView(R.layout.activity_location_tracking)*/
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+       /* val searchView = findViewById<SearchView>(R.id.searchView)
+        locationName =  findViewById<TextView>(R.id.locale)
+        subLocality = findViewById<TextView>(R.id.subLocality)
+        postalCode = findViewById<TextView>(R.id.postalCode)*/
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            @SuppressLint("SetTextI18n")
+            @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.group.visibility = View.VISIBLE
+                /** location name from search view.*/
+                val location: String = binding.searchView.query.toString()
+                /** where we will store the list of all address.*/
+                var addressList: MutableList<Address?>? = null
+
+                /** on below line we are creating and initializing a geo coder. */
+
+
+                val geocoder = Geocoder(applicationContext)
+                try {
+                    /** location name and adding that location to address list.*/
+                    addressList = geocoder.getFromLocationName(location, 1);
+                    Log.e(javaClass.simpleName, "addresses1: $addressList" )
+                    /** For Android SDK < 33, the addresses list will be still obtained from the getFromLocation() method*/
+                    val address: Address? = addressList!![0]
+                    if(address!= null){
+                        Log.e(javaClass.simpleName, "address: $address" )
+                        binding.locale.text = "Place : "+ address.getAddressLine(0)
+                        binding.subLocality.text = "SubLocality : "+address.subLocality
+                        binding.postalCode.text = "PostalCode : "+address.postalCode
+                        /** where we will add our locations latitude and longitude.*/
+                        val latLng = LatLng(address.latitude, address.longitude)
+                        mMap.addMarker(MarkerOptions().position(latLng))
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18f))
+                    }
+
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+
+                /** on below line we are adding marker to that position.ap.addMarker(MarkerOptions().position(latLng).title(location))*/
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
         requestPermissions()
     }
 
     /**
      * Callback received when a permissions request has been completed.
      */
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        Log.e(javaClass.simpleName, "onRequestPermissionResult")
-        if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE) {
-            if (grantResults.isEmpty()) {
-                /** If user interaction was interrupted, the permission request is cancelled and you*/
-                /** receive empty arrays.*/
-                Log.e(javaClass.simpleName, "User interaction was cancelled.")
-                finish()
-            } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                /** can be schedule in this way also
-                Utils.scheduleJob(this, LocationUpdatesService.class);
-                doing this way to communicate via messenger
-                Start service and provide it a way to communicate with this class.
-                 */
 
-                val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
-                val messengerIncoming = Messenger(mHandler)
-                startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
-                startService(startServiceIntent)
-            } else {
-                /** Permission denied.*/
-                finish()
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mHandler = null
-    }
-
-    @SuppressLint("HandlerLeak")
-    internal inner class IncomingMessageHandler : Handler() {
-        @SuppressLint("SetTextI18n")
-        override fun handleMessage(msg: Message) {
-            Log.e(javaClass.simpleName, "handleMessage...$msg")
-            super.handleMessage(msg)
-            when (msg.what) {
-                LocationUpdatesService.LOCATION_MESSAGE -> {
-                    val obj = msg.obj as Location
-                    val currentDateTimeString = DateFormat.getDateTimeInstance().format(Date())
-                    locationMsg!!.text =
-                        """LAT :  ${obj.latitude}LNG : ${obj.longitude}$obj Last updated- $currentDateTimeString"""
-                }
-            }
-        }
-    }
 
     private fun requestPermissions() {
         val shouldProvideRationale = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -122,7 +136,53 @@ class LocationTrackingActivity : AppCompatActivity() {
          * Code used in requesting runtime permissions.
          */
         private const val REQUEST_PERMISSIONS_REQUEST_CODE = 34
-        const val MESSENGER_INTENT_KEY = "msg-intent-key"
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        /**
+        Setting a click event handler for the map
+         */
+        val markerOptions = MarkerOptions()
+        mMap.setOnMapClickListener { latLng -> // Creating a marker
+
+            /** Setting the position for the marker*/
+            markerOptions.position(latLng)
+
+            /** This will be displayed on taping the marker*/
+            markerOptions.title(latLng.latitude.toString() + " : " + latLng.longitude)
+            /** where we will store the list of all address.*/
+            var mapAddressList: MutableList<Address?>? = null
+
+            /** on below line we are creating and initializing a geo coder. */
+            val geocoder = Geocoder(applicationContext)
+            try {
+                /** location name and adding that location to address list.*/
+                mapAddressList = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+                Log.e(javaClass.simpleName, "addresses1: $mapAddressList")
+                /** For Android SDK < 33, the addresses list will be still obtained from the getFromLocation() method*/
+                val mapAddress: Address? = mapAddressList!![0]
+                if (mapAddress != null) {
+                    binding.group.visibility = View.VISIBLE
+                    Log.e(javaClass.simpleName, "address: $mapAddress")
+                    binding.locale.text = "Place : " + mapAddress.getAddressLine(0)
+                    binding.subLocality.text = "SubLocality : " + mapAddress.subLocality
+                    binding.postalCode.text = "PostalCode : " + mapAddress.postalCode
+
+                }
+            }catch (e: IOException) {
+                e.printStackTrace()
+            }
+            /** Clears the previously touched position*/
+            mMap.clear()
+
+            /** Animating to the touched position*/
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
+
+            /** Placing a marker on the touched position*/
+            mMap.addMarker(markerOptions)
+        }
     }
 
 }

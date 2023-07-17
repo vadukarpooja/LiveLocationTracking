@@ -7,7 +7,7 @@
 7    <uses-sdk
 8        android:minSdkVersion="24"
 8-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="31" />
+9        android:targetSdkVersion="33" />
 9-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
@@ -33,104 +33,190 @@
 18-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:12:5-60
 18-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:12:19-57
 19    <uses-feature
-19-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+19-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:26:5-28:35
 20        android:glEsVersion="0x00020000"
-20-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+20-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:27:9-41
 21        android:required="true" />
-21-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+21-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:28:9-32
 22
-23    <application
-23-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:14:5-48:19
-24        android:allowBackup="true"
-24-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:15:9-35
-25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.8.0] /home/poojabharadva/.gradle/caches/transforms-3/8b3d3a5fa520e69e1302cc218a970cca/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
-26        android:dataExtractionRules="@xml/data_extraction_rules"
-26-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:16:9-65
-27        android:debuggable="true"
-28        android:extractNativeLibs="false"
-29        android:fullBackupContent="@xml/backup_rules"
-29-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:17:9-54
-30        android:icon="@mipmap/ic_launcher"
-30-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:18:9-43
-31        android:label="@string/app_name"
-31-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:19:9-41
-32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:20:9-54
-33        android:supportsRtl="true"
-33-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:21:9-35
-34        android:testOnly="true"
-35        android:theme="@style/Theme.ActivityResultLauncher" >
-35-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:22:9-60
-36        <activity
-36-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:24:9-26:40
-37            android:name="com.example.activityresultlauncher.LocationTrackingActivity"
-37-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:25:13-53
-38            android:exported="false" />
-38-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:26:13-37
-39
-40        <meta-data
-40-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:28:9-30:52
-41            android:name="com.google.android.geo.API_KEY"
-41-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:29:13-58
-42            android:value="@string/MAPS_API_KEY" />
-42-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:30:13-49
-43
-44        <activity
-44-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:32:9-34:39
-45            android:name="com.example.activityresultlauncher.LocationActivity"
-45-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:33:13-45
-46            android:exported="true" />
-46-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:34:13-36
-47        <activity
-47-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:35:9-43:20
-48            android:name="com.example.activityresultlauncher.ImagePiker"
-48-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:36:13-39
-49            android:exported="true" >
-49-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:37:13-36
-50            <intent-filter>
-50-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:38:13-42:29
-51                <action android:name="android.intent.action.MAIN" />
-51-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:39:17-69
-51-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:39:25-66
-52
-53                <category android:name="android.intent.category.LAUNCHER" />
-53-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:41:17-77
-53-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:41:27-74
-54            </intent-filter>
-55        </activity>
-56
-57        <service
-57-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:44:9-47:72
-58            android:name="com.example.activityresultlauncher.LocationUpdatesService"
-58-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:45:13-51
-59            android:label="My Job Service Update "
-59-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:46:13-51
-60            android:permission="android.permission.BIND_JOB_SERVICE" />
-60-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:47:13-69
-61        <!-- Needs to be explicitly declared on P+ -->
-62        <uses-library
-62-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-63            android:name="org.apache.http.legacy"
-63-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-64            android:required="false" />
-64-->[com.google.android.gms:play-services-maps:17.0.0] /home/poojabharadva/.gradle/caches/transforms-3/fe13d8a3c816916c1ec1358d96a3d652/transformed/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-65
-66        <activity
-66-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/04ef739d9c539711dadec86980cc7892/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-67            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-67-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/04ef739d9c539711dadec86980cc7892/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-68            android:exported="false"
-68-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/04ef739d9c539711dadec86980cc7892/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-69-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/04ef739d9c539711dadec86980cc7892/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-70
-71        <meta-data
-71-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d85c59e5ad6b9d0443baa797d25ccdef/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
-72            android:name="com.google.android.gms.version"
-72-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d85c59e5ad6b9d0443baa797d25ccdef/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
-73            android:value="@integer/google_play_services_version" />
-73-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d85c59e5ad6b9d0443baa797d25ccdef/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
-74    </application>
-75
-76</manifest>
+23    <queries>
+23-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:30:5-34:15
+24
+25        <!-- Needs to be explicitly declared on Android R+ -->
+26        <package android:name="com.google.android.apps.maps" />
+26-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:9-64
+26-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:18-61
+27    </queries>
+28
+29    <permission
+29-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+30        android:name="com.example.activityresultlauncher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+30-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+31        android:protectionLevel="signature" />
+31-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+32
+33    <uses-permission android:name="com.example.activityresultlauncher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+33-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+33-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+34
+35    <application
+35-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:14:5-48:19
+36        android:allowBackup="true"
+36-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:15:9-35
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+38        android:dataExtractionRules="@xml/data_extraction_rules"
+38-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:16:9-65
+39        android:debuggable="true"
+40        android:extractNativeLibs="false"
+41        android:fullBackupContent="@xml/backup_rules"
+41-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:17:9-54
+42        android:icon="@mipmap/ic_launcher"
+42-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:18:9-43
+43        android:label="@string/app_name"
+43-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:19:9-41
+44        android:roundIcon="@mipmap/ic_launcher_round"
+44-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:20:9-54
+45        android:supportsRtl="true"
+45-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:21:9-35
+46        android:testOnly="true"
+47        android:theme="@style/Theme.ActivityResultLauncher" >
+47-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:22:9-60
+48        <activity
+48-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:24:9-26:40
+49            android:name="com.example.activityresultlauncher.LocationTrackingActivity"
+49-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:25:13-53
+50            android:exported="false" />
+50-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:26:13-37
+51
+52        <meta-data
+52-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:28:9-30:52
+53            android:name="com.google.android.geo.API_KEY"
+53-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:29:13-58
+54            android:value="@string/MAPS_API_KEY" />
+54-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:30:13-49
+55
+56        <activity
+56-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:32:9-34:39
+57            android:name="com.example.activityresultlauncher.LocationActivity"
+57-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:33:13-45
+58            android:exported="true" />
+58-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:34:13-36
+59        <activity
+59-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:35:9-43:20
+60            android:name="com.example.activityresultlauncher.ImagePiker"
+60-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:36:13-39
+61            android:exported="true" >
+61-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:37:13-36
+62            <intent-filter>
+62-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:38:13-42:29
+63                <action android:name="android.intent.action.MAIN" />
+63-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:39:17-69
+63-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:39:25-66
+64
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:41:17-77
+65-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:41:27-74
+66            </intent-filter>
+67        </activity>
+68
+69        <service
+69-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:44:9-47:72
+70            android:name="com.example.activityresultlauncher.LocationUpdatesService"
+70-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:45:13-51
+71            android:label="My Job Service Update "
+71-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:46:13-51
+72            android:permission="android.permission.BIND_JOB_SERVICE" />
+72-->/home/poojabharadva/AndroidStudioProjects/ActivityResultLauncherCameraPermission/app/src/main/AndroidManifest.xml:47:13-69
+73        <!-- Needs to be explicitly declared on P+ -->
+74        <uses-library
+74-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:39:9-41:40
+75            android:name="org.apache.http.legacy"
+75-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:40:13-50
+76            android:required="false" />
+76-->[com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:41:13-37
+77
+78        <activity
+78-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/028267bc9fef477a1354a01b8bf093c4/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+79            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+79-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/028267bc9fef477a1354a01b8bf093c4/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+80            android:exported="false"
+80-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/028267bc9fef477a1354a01b8bf093c4/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+81            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+81-->[com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/028267bc9fef477a1354a01b8bf093c4/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+82
+83        <meta-data
+83-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+84            android:name="com.google.android.gms.version"
+84-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+85            android:value="@integer/google_play_services_version" />
+85-->[com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+86
+87        <provider
+87-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+88            android:name="androidx.startup.InitializationProvider"
+88-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+89            android:authorities="com.example.activityresultlauncher.androidx-startup"
+89-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+90            android:exported="false" >
+90-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+91            <meta-data
+91-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+92                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+92-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+93                android:value="androidx.startup" />
+93-->[androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+94            <meta-data
+94-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+95                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+95-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+96                android:value="androidx.startup" />
+96-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+97            <meta-data
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+98                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+99                android:value="androidx.startup" />
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+100        </provider>
+101
+102        <receiver
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+103            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+104            android:directBootAware="false"
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+105            android:enabled="true"
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+106            android:exported="true"
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+107            android:permission="android.permission.DUMP" >
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+108            <intent-filter>
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+109                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+109-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+109-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+110            </intent-filter>
+111            <intent-filter>
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+112                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+112-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+112-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+113            </intent-filter>
+114            <intent-filter>
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+115                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+116            </intent-filter>
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+118                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/42a8240c2d69336352ad66a47458fc8c/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+119            </intent-filter>
+120        </receiver>
+121    </application>
+122
+123</manifest>

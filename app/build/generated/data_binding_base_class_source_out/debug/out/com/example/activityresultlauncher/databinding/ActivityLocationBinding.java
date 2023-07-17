@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
@@ -21,16 +21,16 @@ public final class ActivityLocationBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final SearchView idSearchView;
-
-  @NonNull
   public final FragmentContainerView mapFragment;
 
+  @NonNull
+  public final AppCompatImageView searchLocation;
+
   private ActivityLocationBinding(@NonNull ConstraintLayout rootView,
-      @NonNull SearchView idSearchView, @NonNull FragmentContainerView mapFragment) {
+      @NonNull FragmentContainerView mapFragment, @NonNull AppCompatImageView searchLocation) {
     this.rootView = rootView;
-    this.idSearchView = idSearchView;
     this.mapFragment = mapFragment;
+    this.searchLocation = searchLocation;
   }
 
   @Override
@@ -60,19 +60,19 @@ public final class ActivityLocationBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.idSearchView;
-      SearchView idSearchView = ViewBindings.findChildViewById(rootView, id);
-      if (idSearchView == null) {
-        break missingId;
-      }
-
       id = R.id.map_fragment;
       FragmentContainerView mapFragment = ViewBindings.findChildViewById(rootView, id);
       if (mapFragment == null) {
         break missingId;
       }
 
-      return new ActivityLocationBinding((ConstraintLayout) rootView, idSearchView, mapFragment);
+      id = R.id.searchLocation;
+      AppCompatImageView searchLocation = ViewBindings.findChildViewById(rootView, id);
+      if (searchLocation == null) {
+        break missingId;
+      }
+
+      return new ActivityLocationBinding((ConstraintLayout) rootView, mapFragment, searchLocation);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
