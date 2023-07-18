@@ -1,10 +1,13 @@
 package com.example.activityresultlauncher
 
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
@@ -14,6 +17,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.os.Messenger
+import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.widget.ImageView
@@ -61,19 +65,16 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         val searchLocation = findViewById<ImageView>(R.id.searchLocation)
         searchLocation.setOnClickListener {
-            val intent = Intent(this,LocationTrackingActivity::class.java)
+            val intent = Intent(this,LocationTrackingActivity::class.java,)
             startActivity(intent)
-            finish()
         }
+
+
     }
 
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
-        mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.uiSettings.isZoomGesturesEnabled = true
-        mMap.uiSettings.isCompassEnabled = true
         if ((ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -93,13 +94,14 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         } else {
-            /*val intentPermission = Intent(android.Manifest.permission.ACCESS_FINE_LOCATION)
-            activityResultLauncher.launch(intentPermission)*/
             checkLocationPermission()
         }
+        mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isZoomGesturesEnabled = true
+        mMap.uiSettings.isCompassEnabled = true
 
     }
-
 
     private fun checkLocationPermission() {
         if (ActivityCompat.checkSelfPermission(
@@ -120,23 +122,17 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                     .setPositiveButton(
                         "OK"
                     ) { _, _ ->
+
                         requestLocationPermission()
                     }
                     .create()
                     .show()
             } else {
-               requestLocationPermission()
 
+                requestLocationPermission()
             }
         }
     }
-
-    companion object {
-        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
-        private const val MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION = 66
-        const val MESSENGER_INTENT_KEY = "msg-intent-key"
-    }
-
     private fun requestLocationPermission() {
         ActivityCompat.requestPermissions(
             this,
@@ -145,9 +141,30 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                 android.Manifest.permission.ACCESS_COARSE_LOCATION
             ),
             MY_PERMISSIONS_REQUEST_LOCATION
-
         )
+    }
+    private fun requestBackgroundLocationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                ),
+                MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
+            )
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                MY_PERMISSIONS_REQUEST_LOCATION
+            )
+        }
+    }
 
+    companion object {
+        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
+        private const val MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION = 66
+        const val MESSENGER_INTENT_KEY = "msg-intent-key"
     }
     val list = ArrayList<LatLng>()
     @SuppressLint("HandlerLeak")
@@ -190,7 +207,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         list.clear()
         mHandler = null
     }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -210,18 +226,17 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
                         startService(startServiceIntent)
-                        //locationUpdatesComponent!!.requestLocationUpdates()
                     } else {
                         requestLocationPermission()
                     }
 
                 } else if (!shouldShowRequestPermissionRationale(permissions[0])) {
 
-                     startActivity(Intent(
+                   startActivity(Intent(
                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
                         Uri.fromParts("package", this.packageName, null),
                     ))
-
+                    //activityResultLauncher.launch(intent)
 
                 } else {
                     requestLocationPermission()
@@ -249,7 +264,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                         ).show()
                     }
                 } else {
-
+                     requestBackgroundLocationPermission()
                     Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
                 }
                 return
@@ -257,36 +272,19 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
-   /* private var activityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == MY_PERMISSIONS_REQUEST_LOCATION) {
-            if (result.resultCode == RESULT_OK){
-                Log.e(javaClass.simpleName, "RESULT_OK: $RESULT_OK")
-                val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
-                val messengerIncoming = Messenger(mHandler)
-                startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
-                startService(startServiceIntent)
-            }
-        } else if (result.resultCode == RESULT_CANCELED) {
-            Log.e(javaClass.simpleName, "RESULT_CANCELED$RESULT_CANCELED")
-            requestLocationPermission()
-        }
 
-    }*/
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
-        if (resultCode == RESULT_OK) {
-            Log.e(javaClass.simpleName, "onActivityResult: $RESULT_OK")
-           locationUpdatesComponent!!.requestLocationUpdates()
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+            if (resultCode == RESULT_OK) {
+                Log.e(javaClass.simpleName, "onActivityResult: $RESULT_OK")
+               // locationUpdatesComponent!!.requestLocationUpdates()
 
-        } else if (resultCode == RESULT_CANCELED) {
-            Log.e(javaClass.simpleName, "onActivityResult: $RESULT_CANCELED")
+            } else if (resultCode == RESULT_CANCELED) {
+                Log.e(javaClass.simpleName, "onActivityResult: $RESULT_CANCELED")
+            }
         }
     }
-}
-
     private fun drawDashedPolyLine(mMap: GoogleMap, listOfPoints: ArrayList<LatLng>, color: Int) {
         /* Boolean to control drawing alternate lines */
         Log.e(javaClass.simpleName, "listOfPoints: $listOfPoints")
@@ -317,25 +315,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 }
 
-/* override fun onLocationUpdate(location: Location?) {
-     if (location!=null){
-         latitudeCurrent = location.latitude
-         longitudeCurrent = location.longitude
-     }
 
-     Log.e(javaClass.simpleName, "LatLong" +
-             ": $location")
 
-     if (mCurrLocationMarker != null) {
-         mCurrLocationMarker!!.remove()
-     }
-     //Place current location marker
-     val latLng = LatLng(latitudeCurrent,longitudeCurrent)
-     val markerOptions = MarkerOptions()
-     markerOptions.position(latLng)
-     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-     mCurrLocationMarker = mMap.addMarker(markerOptions)
-     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
- }*/
 
 
