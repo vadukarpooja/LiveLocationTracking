@@ -1,6 +1,8 @@
 package com.example.activityresultlauncher
 
 import android.annotation.TargetApi
+import android.app.PendingIntent
+import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -9,18 +11,22 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.WindowCompat
 import com.example.activityresultlauncher.databinding.ActivityGeofenceBinding
 import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.Geofence
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
+import com.google.android.gms.maps.model.LatLng
 
-class GeofenceActivity : AppCompatActivity() {
+
+class GeofenceActivity : AppCompatActivity(), LocationInterface {
 
     /*
         private lateinit var appBarConfiguration: AppBarConfiguration
@@ -29,26 +35,27 @@ class GeofenceActivity : AppCompatActivity() {
     private val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 4
     private val REQUEST_TURN_DEVICE_LOCATION_ON = 5
     private lateinit var binding: ActivityGeofenceBinding
+    private lateinit var geoClient: GeofencingClient
+    var latitude = 0.0
+    var longitude = 0.0
+    val radius = 100f
+    private val geofenceList: List<Geofence> ? = null
+
     private val gadgetQ = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
-
         binding = ActivityGeofenceBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        geoClient = LocationServices.getGeofencingClient(this)
         setSupportActionBar(binding.toolbar)
+
 
         /*val navController = findNavController(R.id.nav_host_fragment_content_geofence)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)*/
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
-        }
     }
 
     /*override fun onSupportNavigateUp(): Boolean {
@@ -56,7 +63,12 @@ class GeofenceActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }*/
-
+    private fun seekGeofencing(): GeofencingRequest {
+        return GeofencingRequest.Builder().apply {
+            setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+            //addGeofences(geofenceList)
+        }.build()
+    }
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -66,12 +78,15 @@ class GeofenceActivity : AppCompatActivity() {
 
 
         if (requestCode == REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE ||
-            requestCode == REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE) {
-            if (grantResults.isNotEmpty() && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
+            requestCode == REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
+        ) {
+            if (grantResults.isNotEmpty() && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                Utils.getLocationData(this,this)
                 validateGadgetAreaInitiateGeofence()
             }
         }
     }
+
     @TargetApi(29)
     private fun approveForegroundAndBackgroundLocation(): Boolean {
         val foregroundLocationApproved = (
@@ -116,6 +131,7 @@ class GeofenceActivity : AppCompatActivity() {
                 grantingPermission += android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
                 REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE
             }
+
             else -> REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
         }
         Log.e(javaClass.simpleName, "askLocationPermission")
@@ -149,19 +165,36 @@ class GeofenceActivity : AppCompatActivity() {
                         this, REQUEST_TURN_DEVICE_LOCATION_ON
                     )
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    Log.d(javaClass.simpleName, "Error getting location settings resolution: ${sendEx.message}")
+                    Log.d(
+                        javaClass.simpleName,
+                        "Error getting location settings resolution: ${sendEx.message}"
+                    )
                 }
             } else {
                 Toast.makeText(this, "Enable your location", Toast.LENGTH_SHORT).show()
             }
         }
 
-        locationResponses.addOnCompleteListener {it ->
+        locationResponses.addOnCompleteListener { it ->
             if (it.isSuccessful) {
-                /*addGeofence()*/
+              //  addGeofence()
             }
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        validateGadgetAreaInitiateGeofence(false)
+    }
+
+    private val geofenceIntent: PendingIntent by lazy {
+        val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
+        PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    }
+
+    override fun onLocationUpdate(latLng: LatLng) {
+        latitude = latLng.latitude
+        longitude = latLng.longitude
+    }
 
 }

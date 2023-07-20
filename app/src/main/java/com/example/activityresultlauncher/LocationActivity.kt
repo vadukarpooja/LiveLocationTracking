@@ -2,14 +2,12 @@ package com.example.activityresultlauncher
 
 
 import android.Manifest
+import android.R.attr.radius
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.location.Address
-import android.location.Geocoder
+import android.graphics.Color
 import android.location.Location
 import android.net.Uri
 import android.os.Build
@@ -17,31 +15,30 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.os.Messenger
-import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.activityresultlauncher.databinding.ActivityLocationBinding
+import com.google.android.gms.location.Geofence
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
-import java.io.IOException
 
 
-class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
+class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
 
 
     private var latitudeCurrent = 0.0
@@ -51,7 +48,12 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private var mCurrLocationMarker: Marker? = null
     lateinit var binding: ActivityLocationBinding
-    var locationUpdatesComponent:LocationUpdatesComponent? = null
+    var locationUpdatesComponent: LocationUpdatesComponent? = null
+
+
+
+
+    private val geofenceList: ArrayList<Geofence> = arrayListOf()
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,22 +61,20 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mHandler = IncomingMessageHandler()
+        checkPermission()
         /** Obtain the SupportMapFragment and get notified when the map is ready to be used.*/
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
         val searchLocation = findViewById<ImageView>(R.id.searchLocation)
         searchLocation.setOnClickListener {
-            val intent = Intent(this,LocationTrackingActivity::class.java,)
+            val intent = Intent(this, LocationTrackingActivity::class.java)
             startActivity(intent)
         }
 
-
     }
 
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+    private fun checkPermission() {
         if ((ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -86,35 +86,31 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             )
                     == PackageManager.PERMISSION_GRANTED)
         ) {
-
             val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
             val messengerIncoming = Messenger(mHandler)
             startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
             startService(startServiceIntent)
-
-
         } else {
             checkLocationPermission()
         }
+
+
+}
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
         mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
-        mMap.uiSettings.isZoomControlsEnabled = true
+         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isZoomGesturesEnabled = true
         mMap.uiSettings.isCompassEnabled = true
-
     }
 
     private fun checkLocationPermission() {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION
-                )
-            ) {
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
 
                 AlertDialog.Builder(this)
                     .setTitle("Location Permission Needed")
@@ -131,18 +127,18 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 requestLocationPermission()
             }
-        }
-    }
+        }    }
+
+
     private fun requestLocationPermission() {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(
-                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ),
+        ActivityCompat.requestPermissions(this, arrayOf(
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+        ),
             MY_PERMISSIONS_REQUEST_LOCATION
         )
     }
+
     private fun requestBackgroundLocationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ActivityCompat.requestPermissions(
@@ -155,7 +151,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
                 MY_PERMISSIONS_REQUEST_LOCATION
             )
         }
@@ -166,7 +162,9 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION = 66
         const val MESSENGER_INTENT_KEY = "msg-intent-key"
     }
+
     val list = ArrayList<LatLng>()
+
     @SuppressLint("HandlerLeak")
     inner class IncomingMessageHandler : Handler() {
         override fun handleMessage(msg: Message) {
@@ -180,7 +178,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                     list.addAll(arrayListOf(latLng))
                     Log.e(javaClass.simpleName, "list: $list")
                     /** PolyLine Start Point Marker*/
-                    mCurrLocationMarker= mMap.addMarker(
+                    mCurrLocationMarker = mMap.addMarker(
                         MarkerOptions()
                             .position(
                                 LatLng(
@@ -202,11 +200,16 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         list.clear()
         mHandler = null
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -217,11 +220,8 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             MY_PERMISSIONS_REQUEST_LOCATION -> {
                 if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-                    if (ContextCompat.checkSelfPermission(
-                            this,
-                            android.Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
-                    ) {
+                    if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ){
+                        mMap.isMyLocationEnabled = true
                         val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
@@ -232,10 +232,11 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 } else if (!shouldShowRequestPermissionRationale(permissions[0])) {
 
-                   startActivity(Intent(
+                    startActivity(Intent(
                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                        Uri.fromParts("package", this.packageName, null),
-                    ))
+                        Uri.fromParts("package", this.packageName, null)
+                    )
+                    )
                     //activityResultLauncher.launch(intent)
 
                 } else {
@@ -248,23 +249,16 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-                    if (ContextCompat.checkSelfPermission(
-                            this,
-                            android.Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
-                    ) {
+                    if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        mMap.isMyLocationEnabled = true
                         val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
                         startService(startServiceIntent)
-                        Toast.makeText(
-                            this,
-                            "Granted Background Location Permission",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(this, "Granted Background Location Permission", Toast.LENGTH_LONG).show()
                     }
                 } else {
-                     requestBackgroundLocationPermission()
+                    requestBackgroundLocationPermission()
                     Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
                 }
                 return
@@ -278,13 +272,14 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
             if (resultCode == RESULT_OK) {
                 Log.e(javaClass.simpleName, "onActivityResult: $RESULT_OK")
-               // locationUpdatesComponent!!.requestLocationUpdates()
+                // locationUpdatesComponent!!.requestLocationUpdates()
 
             } else if (resultCode == RESULT_CANCELED) {
                 Log.e(javaClass.simpleName, "onActivityResult: $RESULT_CANCELED")
             }
         }
     }
+
     private fun drawDashedPolyLine(mMap: GoogleMap, listOfPoints: ArrayList<LatLng>, color: Int) {
         /* Boolean to control drawing alternate lines */
         Log.e(javaClass.simpleName, "listOfPoints: $listOfPoints")
