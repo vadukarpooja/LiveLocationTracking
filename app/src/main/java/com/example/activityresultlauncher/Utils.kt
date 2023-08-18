@@ -9,6 +9,9 @@ import android.location.Location
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.ActivityCompat
+import com.example.activityresultlauncher.model.Country
+import com.example.activityresultlauncher.model.Option
+import com.example.activityresultlauncher.model.PlaceModel
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.PendingResult
 import com.google.android.gms.common.api.Status
@@ -37,9 +40,59 @@ class Utils {
         private lateinit var mLastLocation: Location
         private lateinit var mLocationRequest: LocationRequest
         private lateinit var locationInterface: LocationInterface
+        private val MY_PERMISSIONS_REQUEST_LOCATION = 99
 
-        fun String?.toNullString(): String {
-            return this?.toString() ?: ""
+
+
+        fun displayLocationSettingsRequest(context: Context, activity: Activity) {
+            val googleApiClient = GoogleApiClient.Builder(context)
+                .addApi(LocationServices.API).build()
+            googleApiClient.connect()
+            val locationRequest = LocationRequest.create()
+            locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            locationRequest.interval = 10000
+            locationRequest.fastestInterval = 10000 / 2.toLong()
+            val builder = LocationSettingsRequest.Builder().addLocationRequest(locationRequest)
+            builder.setAlwaysShow(true)
+            val result: PendingResult<LocationSettingsResult> =
+                LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build())
+            result.setResultCallback { result ->
+                val status: Status = result.status
+                when (status.statusCode) {
+                    LocationSettingsStatusCodes.SUCCESS -> {
+                        Log.i("SelectLocation", "All location settings are satisfied.")
+
+                        getLocationData(context,activity)
+
+
+                    }
+                    LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+                        Log.i(
+                            "SelectLocation",
+                            "Location settings are not satisfied. Show the user a dialog to upgrade location settings"
+                        )
+                        try {
+                            status.startResolutionForResult(
+                                activity,
+                                MY_PERMISSIONS_REQUEST_LOCATION
+                            )
+                        } catch (e: IntentSender.SendIntentException) {
+                            Log.i("SelectLocation", "PendingIntent unable to execute request.")
+                        }
+                    }
+                    LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> Log.i(
+                        "SelectLocation",
+                        "Location settings are inadequate, and cannot be fixed here. Dialog not created."
+                    )
+
+                    LocationSettingsStatusCodes.CANCELED -> {
+                        Log.i(
+                            "SelectLocation",
+                            "Cancelled"
+                        )
+                    }
+                }
+            }
         }
 
          fun getLocationData(context: Context,activity: Activity) {
@@ -105,6 +158,36 @@ class Utils {
             locationInterface.onLocationUpdate(LatLng( location.latitude,location.longitude))
 
             mFusedLocationProviderClient?.removeLocationUpdates(mLocationCallback)
+        }
+
+        fun list():ArrayList<PlaceModel>{
+            val list = ArrayList<PlaceModel>()
+            val optionList= ArrayList<Option>()
+            optionList.add(Option(title = "Test1"))
+            optionList.add(Option(title = "Test2"))
+            optionList.add(Option(title = "Test3"))
+            val genderList = ArrayList<Option>()
+            genderList.add(Option(title = "Male"))
+            genderList.add(Option(title = "Female"))
+            val btnList = ArrayList<Option>()
+            btnList.add(Option(title = "Save"))
+            btnList.add(Option(title = "Cancel"))
+            val countryList = ArrayList<Country>()
+            countryList.add(Country(value = "India"))
+            countryList.add(Country(value = "Sri Lanka"))
+            countryList.add(Country(value = "Nepal"))
+            countryList.add(Country(value = "China"))
+            list.add(PlaceModel(locale = "1", subLocality = "First Name", inputType = "text"))
+            list.add(PlaceModel(locale = "2", subLocality = "Last Name",inputType = "text"))
+            list.add(PlaceModel(locale = "3", subLocality = "City",inputType = "text"))
+            list.add(PlaceModel(locale = "4", subLocality = "Gender",inputType = "radio", option = genderList))
+            list.add(PlaceModel(locale = "5", subLocality = "Date",inputType = "date"))
+            list.add(PlaceModel(locale = "6", subLocality = "MobileNumber",inputType = "number"))
+            list.add(PlaceModel(locale = "7", subLocality = "select Query Type",inputType = "dropDown", option = optionList))
+            list.add(PlaceModel(locale = "8", subLocality = "Country",inputType = "checkBox", countryList = countryList))
+            list.add(PlaceModel(locale = "9", subLocality = "Rating",inputType = "rating"))
+            list.add(PlaceModel(locale = "10",inputType = "btn", option = btnList))
+            return list
         }
 
     }

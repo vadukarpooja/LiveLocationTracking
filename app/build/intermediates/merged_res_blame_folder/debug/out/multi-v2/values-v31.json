@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.activityresultlauncher.app-mergeDebugResources-36:/values-v31/values-v31.xml",
+            "outputFile": "com.example.activityresultlauncher.app-mergeDebugResources-48:/values-v31/values-v31.xml",
             "map": [
                 {
                     "source": "/home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/res/values-v31/values-v31.xml",

@@ -38,7 +38,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 
 
-class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
+class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     private var latitudeCurrent = 0.0
@@ -49,8 +49,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
     private var mCurrLocationMarker: Marker? = null
     lateinit var binding: ActivityLocationBinding
     var locationUpdatesComponent: LocationUpdatesComponent? = null
-
-
 
 
     private val geofenceList: ArrayList<Geofence> = arrayListOf()
@@ -95,22 +93,28 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
         }
 
 
-}
+    }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
-         mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isZoomGesturesEnabled = true
         mMap.uiSettings.isCompassEnabled = true
     }
 
     private fun checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            ) {
 
                 AlertDialog.Builder(this)
                     .setTitle("Location Permission Needed")
@@ -127,14 +131,16 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 requestLocationPermission()
             }
-        }    }
+        }
+    }
 
 
     private fun requestLocationPermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(
-            android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION,
-        ),
+        ActivityCompat.requestPermissions(
+            this, arrayOf(
+                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            ),
             MY_PERMISSIONS_REQUEST_LOCATION
         )
     }
@@ -151,7 +157,10 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
         } else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
                 MY_PERMISSIONS_REQUEST_LOCATION
             )
         }
@@ -220,7 +229,11 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
             MY_PERMISSIONS_REQUEST_LOCATION -> {
                 if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-                    if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ){
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
                         mMap.isMyLocationEnabled = true
                         val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
                         val messengerIncoming = Messenger(mHandler)
@@ -232,12 +245,12 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 } else if (!shouldShowRequestPermissionRationale(permissions[0])) {
 
-                    startActivity(Intent(
-                        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                        Uri.fromParts("package", this.packageName, null)
+                    startActivity(
+                        Intent(
+                            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.fromParts("package", this.packageName, null)
+                        )
                     )
-                    )
-                    //activityResultLauncher.launch(intent)
 
                 } else {
                     requestLocationPermission()
@@ -249,13 +262,21 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-                    if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
                         mMap.isMyLocationEnabled = true
                         val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(MESSENGER_INTENT_KEY, messengerIncoming)
                         startService(startServiceIntent)
-                        Toast.makeText(this, "Granted Background Location Permission", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this,
+                            "Granted Background Location Permission",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 } else {
                     requestBackgroundLocationPermission()

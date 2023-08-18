@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.activityresultlauncher.app-mergeDebugResources-36:/values-port/values-port.xml",
+            "outputFile": "com.example.activityresultlauncher.app-mergeDebugResources-48:/values-port/values-port.xml",
             "map": [
                 {
                     "source": "/home/poojabharadva/.gradle/caches/transforms-3/fd4574fafbc5d1d6d3097ba8a6f2367f/transformed/appcompat-1.6.1/res/values-port/values-port.xml",

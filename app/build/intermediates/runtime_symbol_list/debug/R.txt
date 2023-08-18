@@ -1485,6 +1485,7 @@ int color foreground_material_dark 0x7f050067
 int color foreground_material_light 0x7f050068
 int color highlighted_text_material_dark 0x7f050069
 int color highlighted_text_material_light 0x7f05006a
+int color light_yellow 0x7f0502f7
 int color m3_appbar_overlay_color 0x7f05006b
 int color m3_assist_chip_icon_tint_color 0x7f05006c
 int color m3_assist_chip_stroke_color 0x7f05006d
@@ -2135,6 +2136,7 @@ int color switch_thumb_normal_material_light 0x7f0502f1
 int color tooltip_background_dark 0x7f0502f2
 int color tooltip_background_light 0x7f0502f3
 int color white 0x7f0502f4
+int color yellow 0x7f0502f8
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
 int dimen abc_action_bar_default_height_material 0x7f060002
@@ -2995,6 +2997,7 @@ int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
 int drawable baseline_location_searching_24 0x7f07007a
 int drawable baseline_my_location_24 0x7f07007b
+int drawable baseline_star_24 0x7f0700fe
 int drawable bg 0x7f07007c
 int drawable btn_checkbox_checked_mtrl 0x7f07007d
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07007e
@@ -3028,6 +3031,7 @@ int drawable design_ic_visibility 0x7f070099
 int drawable design_ic_visibility_off 0x7f07009a
 int drawable design_password_eye 0x7f07009b
 int drawable design_snackbar_background 0x7f07009c
+int drawable edt_bg 0x7f0700fd
 int drawable googleg_disabled_color_18 0x7f07009d
 int drawable googleg_standard_color_18 0x7f07009e
 int drawable ic_arrow_back_black_24 0x7f07009f
@@ -3230,6 +3234,9 @@ int id bounceBoth 0x7f080066
 int id bounceEnd 0x7f080067
 int id bounceStart 0x7f080068
 int id btn 0x7f080069
+int id btnAction 0x7f080213
+int id btnCancel 0x7f080215
+int id btnSave 0x7f080216
 int id btn_g 0x7f08006a
 int id buttonPanel 0x7f08006b
 int id cache_measures 0x7f08006c
@@ -3330,6 +3337,7 @@ int id fixed 0x7f0800ca
 int id flip 0x7f0800cb
 int id floating 0x7f0800cc
 int id forever 0x7f0800cd
+int id formData 0x7f080214
 int id fragment_container_view_tag 0x7f0800ce
 int id frost 0x7f0800cf
 int id fullscreen_header 0x7f0800d0
@@ -3772,8 +3780,11 @@ int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_geofence 0x7f0b001c
 int layout activity_location 0x7f0b001d
+int layout activity_location_permission 0x7f0b006f
 int layout activity_location_tracking 0x7f0b001e
 int layout activity_main 0x7f0b001f
+int layout activity_ui_element 0x7f0b0070
+int layout button_layout 0x7f0b0071
 int layout custom_dialog 0x7f0b0020
 int layout design_bottom_navigation_item 0x7f0b0021
 int layout design_bottom_sheet_dialog 0x7f0b0022
@@ -3901,6 +3912,7 @@ int string call_notification_hang_up_action 0x7f100028
 int string call_notification_incoming_text 0x7f100029
 int string call_notification_ongoing_text 0x7f10002a
 int string call_notification_screening_text 0x7f10002b
+int string cancel 0x7f1000c9
 int string character_counter_content_description 0x7f10002c
 int string character_counter_overflowed_content_description 0x7f10002d
 int string character_counter_pattern 0x7f10002e
@@ -3936,7 +3948,6 @@ int string hide_bottom_view_on_scroll_behavior 0x7f10004b
 int string icon_content_description 0x7f10004c
 int string imagepiker 0x7f10004d
 int string item_view_role_description 0x7f10004e
-int string lorem_ipsum 0x7f10004f
 int string m3_ref_typeface_brand_medium 0x7f100050
 int string m3_ref_typeface_brand_regular 0x7f100051
 int string m3_ref_typeface_plain_medium 0x7f100052
@@ -4047,6 +4058,7 @@ int string path_password_strike_through 0x7f1000ba
 int string place 0x7f1000bb
 int string postalcode 0x7f1000bc
 int string previous 0x7f1000bd
+int string save 0x7f1000ca
 int string search_menu_title 0x7f1000be
 int string searchbar_scrolling_view_behavior 0x7f1000bf
 int string searchview_clear_text_content_description 0x7f1000c0

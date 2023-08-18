@@ -17,6 +17,7 @@ import android.os.Messenger
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.Geofence
@@ -55,19 +56,9 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
         geofenceHelper = GeofenceHelper(this);
         mHandler = IncomingMessageHandler()
         geofencingClient = getGeofencingClient(this)
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-        Log.e(javaClass.simpleName, "onMapReady: " + LatLng(latitudeCurrent, longitudeCurrent))
         checkPermission()
-        mMap.setOnMapLongClickListener(this)
-        mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.uiSettings.isZoomGesturesEnabled = true
-        mMap.uiSettings.isCompassEnabled = true
     }
-
-    private fun checkPermission(): Boolean {
+    private fun checkPermission() {
         if ((ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -83,51 +74,13 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
             val messengerIncoming = Messenger(mHandler)
             startServiceIntent.putExtra(LocationActivity.MESSENGER_INTENT_KEY, messengerIncoming)
             startService(startServiceIntent)
-            return true
         } else {
             checkLocationPermission()
-            return false
         }
 
-    }
 
-    override fun onMapLongClick(latLng: LatLng) {
-        Log.e(javaClass.simpleName, "onMapLongClick: $latLng")
-        if (Build.VERSION.SDK_INT >= 29) {
-            //We need background permission
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
-                handleMapLongClick(latLng)
-            } else {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(
-                        this,
-                        Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                    )
-                ) {
-                    //We show a dialog and ask for permission
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
-                        MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
-                    )
-                } else {
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
-                        MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
-                    )
-                }
-            }
-        } else {
-            handleMapLongClick(latLng)
-        }
     }
-
     private fun checkLocationPermission() {
-
         if (ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -156,7 +109,32 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                 requestLocationPermission()
             }
         }
+
     }
+    private fun requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this, arrayOf(
+                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            ),
+           MY_PERMISSIONS_REQUEST_LOCATION
+        )
+    }
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        Log.e(javaClass.simpleName, "onMapReady: " + LatLng(latitudeCurrent, longitudeCurrent))
+        mMap.setOnMapLongClickListener(this)
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isZoomGesturesEnabled = true
+        mMap.uiSettings.isCompassEnabled = true
+    }
+
+
+    override fun onMapLongClick(latLng: LatLng) {
+
+    }
+
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -173,7 +151,7 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                             android.Manifest.permission.ACCESS_FINE_LOCATION
                         ) == PackageManager.PERMISSION_GRANTED
                     ) {
-                        mMap.isMyLocationEnabled = true
+                        //mMap.isMyLocationEnabled = true
                         val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
                         val messengerIncoming = Messenger(mHandler)
                         startServiceIntent.putExtra(
@@ -183,6 +161,8 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                         startService(startServiceIntent)
                     } else {
                         requestLocationPermission()
+                        Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
+
                     }
 
                 } else if (!shouldShowRequestPermissionRationale(permissions[0])) {
@@ -200,69 +180,38 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                 }
                 return
             }
+           /* MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION -> {
+                    if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-            MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION -> {
-                if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                        if (ContextCompat.checkSelfPermission(
+                                this,
+                                android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
+                        ) {
+                           // mMap.isMyLocationEnabled = true
+                            val startServiceIntent =
+                                Intent(this, LocationUpdatesService::class.java)
+                            val messengerIncoming = Messenger(mHandler)
+                            startServiceIntent.putExtra(
+                                LocationActivity.MESSENGER_INTENT_KEY,
+                                messengerIncoming
+                            )
+                            startService(startServiceIntent)
+                            Toast.makeText(
+                                this,
+                                "Granted Background Location Permission",
+                                Toast.LENGTH_LONG
+                            ).show()
 
-                    if (ContextCompat.checkSelfPermission(
-                            this,
-                            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
-                    ) {
-                        mMap.isMyLocationEnabled = true
-                        val startServiceIntent = Intent(this, LocationUpdatesService::class.java)
-                        val messengerIncoming = Messenger(mHandler)
-                        startServiceIntent.putExtra(
-                            LocationActivity.MESSENGER_INTENT_KEY,
-                            messengerIncoming
-                        )
-                        startService(startServiceIntent)
-                        Toast.makeText(
-                            this,
-                            "Granted Background Location Permission",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        }
+                    } else {
+                        Toast.makeText(this, "permission Background denied", Toast.LENGTH_LONG).show()
                     }
-                } else {
-                    requestBackgroundLocationPermission()
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
-                }
-                return
-
-            }
+                    return
+            }*/
         }
     }
 
-    private fun requestLocationPermission() {
-        ActivityCompat.requestPermissions(
-            this, arrayOf(
-                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION,
-            ),
-            MY_PERMISSIONS_REQUEST_LOCATION
-        )
-    }
-
-    private fun requestBackgroundLocationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                ),
-                MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
-            )
-        } else {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                MY_PERMISSIONS_REQUEST_LOCATION
-            )
-        }
-    }
 
 
     override fun onDestroy() {
@@ -321,7 +270,47 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
         Log.e(javaClass.simpleName, "geofencingRequest: $geofencingRequest")
         val pendingIntent = geofenceHelper.getPendingIntent()
         Log.e(javaClass.simpleName, "pendingIntent1: $pendingIntent")
-        if (checkPermission()) {
+        if (Build.VERSION.SDK_INT >= 29) {
+            //We need background permission
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                mMap.isMyLocationEnabled = true
+                geofencingClient.addGeofences(
+                    geofenceHelper.getGeofencingRequest(geofence),
+                    geofenceHelper.getPendingIntent()
+                ).addOnSuccessListener {
+                    Log.e(javaClass.simpleName, "onSuccess: Added...")
+                }
+                    .addOnFailureListener { e ->
+                        val errorMessage = geofenceHelper.getErrorString(e)
+                        Toast.makeText(this, "Background Location Permission denied", Toast.LENGTH_LONG)
+                            .show()
+                        Log.e(javaClass.simpleName, "onFailure: $errorMessage")
+                    }
+            } else {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(
+                        this,
+                        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                    )
+                ) {
+                    //We show a dialog and ask for permission
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+                        MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
+                    )
+                } else {
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+                        MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION
+                    )
+                }
+            }
+        } else {
             mMap.isMyLocationEnabled = true
             geofencingClient.addGeofences(
                 geofenceHelper.getGeofencingRequest(geofence),
@@ -331,12 +320,11 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
             }
                 .addOnFailureListener { e ->
                     val errorMessage = geofenceHelper.getErrorString(e)
+                    Toast.makeText(this, "Background Location Permission denied", Toast.LENGTH_LONG)
+                        .show()
                     Log.e(javaClass.simpleName, "onFailure: $errorMessage")
                 }
-        } else {
-                checkLocationPermission()
         }
-
     }
 
     private fun addMarker(latLng: LatLng) {

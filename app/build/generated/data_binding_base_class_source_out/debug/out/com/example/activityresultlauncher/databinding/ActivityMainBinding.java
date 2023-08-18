@@ -4,6 +4,7 @@ package com.example.activityresultlauncher.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
@@ -25,6 +26,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final AppCompatButton btn;
 
   @NonNull
+  public final AppCompatButton btnAction;
+
+  @NonNull
   public final AppCompatButton btnG;
 
   @NonNull
@@ -37,18 +41,24 @@ public final class ActivityMainBinding implements ViewBinding {
   public final AppCompatImageView imgLocation;
 
   @NonNull
+  public final LinearLayout layout;
+
+  @NonNull
   public final AppCompatTextView title;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull AppCompatButton btn,
-      @NonNull AppCompatButton btnG, @NonNull AppCompatImageView imageC,
-      @NonNull AppCompatImageView imageG, @NonNull AppCompatImageView imgLocation,
+      @NonNull AppCompatButton btnAction, @NonNull AppCompatButton btnG,
+      @NonNull AppCompatImageView imageC, @NonNull AppCompatImageView imageG,
+      @NonNull AppCompatImageView imgLocation, @NonNull LinearLayout layout,
       @NonNull AppCompatTextView title) {
     this.rootView = rootView;
     this.btn = btn;
+    this.btnAction = btnAction;
     this.btnG = btnG;
     this.imageC = imageC;
     this.imageG = imageG;
     this.imgLocation = imgLocation;
+    this.layout = layout;
     this.title = title;
   }
 
@@ -85,6 +95,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnAction;
+      AppCompatButton btnAction = ViewBindings.findChildViewById(rootView, id);
+      if (btnAction == null) {
+        break missingId;
+      }
+
       id = R.id.btn_g;
       AppCompatButton btnG = ViewBindings.findChildViewById(rootView, id);
       if (btnG == null) {
@@ -109,14 +125,20 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.layout;
+      LinearLayout layout = ViewBindings.findChildViewById(rootView, id);
+      if (layout == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       AppCompatTextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, btn, btnG, imageC, imageG,
-          imgLocation, title);
+      return new ActivityMainBinding((ConstraintLayout) rootView, btn, btnAction, btnG, imageC,
+          imageG, imgLocation, layout, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

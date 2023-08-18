@@ -1,13 +1,17 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color light_yellow
 color pink
 color purple
 color white
+color yellow
 dimen fab_margin
 drawable baseline_location_searching_24
 drawable baseline_my_location_24
+drawable baseline_star_24
 drawable bg
+drawable edt_bg
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id FirstFragment
@@ -15,12 +19,17 @@ id SecondFragment
 id action_FirstFragment_to_SecondFragment
 id action_SecondFragment_to_FirstFragment
 id btn
+id btnAction
+id btnCancel
+id btnSave
 id btn_g
 id fab
+id formData
 id group
 id image_c
 id image_g
 id imgLocation
+id layout
 id locale
 id map
 id map_fragment
@@ -34,8 +43,11 @@ id title
 id toolbar
 layout activity_geofence
 layout activity_location
+layout activity_location_permission
 layout activity_location_tracking
 layout activity_main
+layout activity_ui_element
+layout button_layout
 layout fragment_map
 layout raw_near_place
 mipmap ic_launcher
@@ -43,15 +55,16 @@ mipmap ic_launcher_round
 navigation nav_graph
 string MAPS_API_KEY
 string app_name
+string cancel
 string first_fragment_label
 string gallery
 string hello_blank_fragment
 string imagepiker
-string lorem_ipsum
 string next
 string place
 string postalcode
 string previous
+string save
 string second_fragment_label
 string sublocality
 string take_a_photo

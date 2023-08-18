@@ -6,17 +6,26 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.activityresultlauncher.databinding.ActivityMainBinding
+import java.io.File
 
-internal class ImagePiker : AppCompatActivity() {
+class ImagePiker : AppCompatActivity() {
     private var requiredPermissions = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
@@ -29,21 +38,130 @@ internal class ImagePiker : AppCompatActivity() {
     private var btnG: Button? = null
     private var location: ImageView? = null
     private var uriForCamera: Uri? = null
+    private var layout: LinearLayout ? = null
+    private val PERMISSION_REQUEST_FINE_LOCATION = 90
+    val PERMISSION_REQUEST_BACKGROUND_LOCATION = 91
+    lateinit var binding: ActivityMainBinding
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val btnLayoutParams: ViewGroup.MarginLayoutParams = ViewGroup.MarginLayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
         btn = findViewById<View>(R.id.btn) as Button
         img = findViewById<View>(R.id.image_c) as ImageView
         imgG = findViewById<View>(R.id.image_g) as ImageView
         btnG = findViewById<View>(R.id.btn_g) as Button
         location = findViewById<View>(R.id.imgLocation) as ImageView
+        layout = findViewById<View>(R.id.layout)as LinearLayout
+        val group:RadioGroup = RadioGroup(this)
+        group.orientation = RadioGroup.HORIZONTAL
+        val radioButton1 = RadioButton(this)
+        group.addView(radioButton1)
+        radioButton1.text = "Excellent"
+        val radioButton2 = RadioButton(this)
+        group.addView(radioButton2)
+        radioButton2.text = "Good"
+        val radioButton3 = RadioButton(this)
+        group.addView(radioButton3)
+        radioButton3.text = "Average"
+        val radioButton4 = RadioButton(this)
+        group.addView(radioButton4)
+        radioButton4.text = "Poor"
 
+        binding.btnAction.setOnClickListener {
+            val type = "image/*"
+            val filename = "/myPhoto.jpg"
+            val mediaPath = Environment.getExternalStorageDirectory().toString() + filename
+                // Create the new Intent using the 'Send' action.
+                val share = Intent(Intent.ACTION_SEND)
+
+                // Set the MIME type
+                share.type = type
+
+                // Create the URI from the media
+                val media = File(mediaPath)
+                val uri = Uri.fromFile(media)
+
+                // Add the URI to the Intent.
+                share.putExtra(Intent.EXTRA_STREAM, uriForCamera)
+
+                // Broadcast the Intent.
+                startActivity(Intent.createChooser(share, "Share to"));
+        }
+
+        layout?.addView(group)
         location!!.setOnClickListener {
-            val intent = Intent(this, LocationActivity::class.java)
-            startActivity(intent)
-            finish()
+          /*  if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (checkSelfPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED
+                ) {
+                    if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+                        val builder =
+                            AlertDialog.Builder(this)
+                        builder.setTitle("This app needs background location access")
+                        builder.setMessage("Please grant location access so this app can detect beacons in the background.")
+                        builder.setPositiveButton(android.R.string.ok, null)
+                        builder.setOnDismissListener {
+                            requestPermissions(
+                                arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+                                PERMISSION_REQUEST_BACKGROUND_LOCATION
+                            )
+                        }
+                        builder.show()
+                    } else {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                            val builder =
+                                AlertDialog.Builder(this)
+                            builder.setTitle("Functionality limited")
+                            builder.setMessage("Since background location access has not been granted, this app will not be able to discover beacons in the background.  Please go to Settings -> Applications -> Permissions and grant background location access to this app.")
+                            builder.setPositiveButton(android.R.string.ok, null)
+                            builder.setOnDismissListener {
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                val uri: Uri = Uri.fromParts("package", packageName, null)
+                                intent.data = uri
+                                // This will take the user to a page where they have to click twice to drill down to grant the permission
+                                startActivity(intent)
+                            }
+                            builder.show()
+                        }
+                    }
+                }
+            } else {
+                if (!shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                    requestPermissions(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                            *//*Manifest.permission.ACCESS_BACKGROUND_LOCATION*//*
+                        ),
+                        PERMISSION_REQUEST_FINE_LOCATION
+                    )
+                } else {
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("Functionality limited")
+                    builder.setMessage("Since location access has not been granted, this app will not be able to discover beacons.  Please go to Settings -> Applications -> Permissions and grant location access to this app.")
+                    builder.setPositiveButton(android.R.string.ok, null)
+                    builder.setOnDismissListener {
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        val uri: Uri = Uri.fromParts("package", packageName, null)
+                        intent.data = uri
+                        // This will take the user to a page where they have to click twice to drill down to grant the permission
+                        startActivity(intent)
+                    }
+                    builder.show()
+                }
+            }
+*/
+             val intent = Intent(this, LocationGeofenceActivity::class.java)
+             startActivity(intent)
+             finish()
 
         }
 
@@ -160,4 +278,9 @@ internal class ImagePiker : AppCompatActivity() {
                 false
             }
         }
+
+    companion object{
+
+
+    }
 }

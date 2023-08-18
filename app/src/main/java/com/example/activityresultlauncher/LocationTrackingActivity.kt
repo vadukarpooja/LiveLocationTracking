@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.activityresultlauncher.Utils.Companion.toNullString
 import com.example.activityresultlauncher.databinding.ActivityLocationTrackingBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -48,6 +47,7 @@ class LocationTrackingActivity : AppCompatActivity(), OnMapReadyCallback,Locatio
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        Utils.getLocationData(this,this)
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             @SuppressLint("SetTextI18n")
             @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -72,11 +72,11 @@ class LocationTrackingActivity : AppCompatActivity(), OnMapReadyCallback,Locatio
                         val address: Address? = addressList[0]
                         if (address != null) {
                             Log.e(javaClass.simpleName, "address: $address")
-                            binding.locale.text = "Place : " + address.getAddressLine(0).toNullString()
+                            binding.locale.text = "Place : " + address.getAddressLine(0)
                             binding.subLocality.text =
-                                "SubLocality : " + address.subLocality.toNullString()
+                                "SubLocality : " + address.subLocality
                             binding.postalCode.text =
-                                "PostalCode : " + address.postalCode.toNullString()
+                                "PostalCode : " + address.postalCode
                             /** where we will add our locations latitude and longitude.*/
                             val latLng = LatLng(address.latitude, address.longitude)
                             mMap.addMarker(MarkerOptions().position(latLng))
@@ -115,7 +115,7 @@ class LocationTrackingActivity : AppCompatActivity(), OnMapReadyCallback,Locatio
                         ) == PackageManager.PERMISSION_GRANTED
                     ) {
                         Utils.getLocationData(this,this)
-                    } else {
+                      } else {
                         requestLocationPermission()
                     }
 
@@ -212,9 +212,9 @@ class LocationTrackingActivity : AppCompatActivity(), OnMapReadyCallback,Locatio
                     if (mapAddress != null) {
                         binding.group.visibility = View.VISIBLE
                         Log.e(javaClass.simpleName, "address: $mapAddress")
-                        binding.locale.text = "Place : " + mapAddress.getAddressLine(0).toNullString()
-                        binding.postalCode.text = "PostalCode : " + mapAddress.postalCode.toNullString()
-                        binding.subLocality.text = "SubLocality : " + mapAddress.locality.toNullString()
+                        binding.locale.text = "Place : " + mapAddress.getAddressLine(0)
+                        binding.postalCode.text = "PostalCode : " + mapAddress.postalCode
+                        binding.subLocality.text = "SubLocality : " + mapAddress.locality
                     }
                 }
             } catch (e: IOException) {

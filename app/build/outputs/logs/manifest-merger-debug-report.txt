@@ -1,10 +1,18 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
 MERGED from [androidx.databinding:viewbinding:8.0.1] /home/poojabharadva/.gradle/caches/transforms-3/7c8b5a41e70002c87210ef8c6c297b8f/transformed/viewbinding-8.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/c20819eee454c16185449e948f5198a4/transformed/navigation-common-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/2d768735dbdfac67395e970e8f26da84/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/dd89cb285045325b40f9867870757541/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/fa05c694ac1eced5a3c1c675518cd436/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/153df0818bcde535f62358e07bf07759/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/349517486043ccce11e7455338871e94/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/bf2624a680e6f6d206b1f204de97ca70/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/d1c1b973e7a31db1fc47acfac150d50c/transformed/navigation-ui-2.6.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.9.0] /home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/poojabharadva/.gradle/caches/transforms-3/d6fe85d198c215c07fecb48f2fed6d78/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/poojabharadva/.gradle/caches/transforms-3/e73a4923bbe4bb59c7fc0c4348a922f3/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -16,7 +24,8 @@ MERGED from [com.google.android.gms:play-services-location:21.0.1] /home/poojabh
 MERGED from [com.google.android.gms:play-services-base:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/028267bc9fef477a1354a01b8bf093c4/transformed/play-services-base-18.1.0/AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /home/poojabharadva/.gradle/caches/transforms-3/862d734ddcadb5f85f7ffdb7244c64ee/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.5.1] /home/poojabharadva/.gradle/caches/transforms-3/2c2ec6f1b58a781355ee54f14cba70bb/transformed/fragment-1.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/a767ba34704e08b5148fd6da7ea91ff0/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/4b8702ac06368dcde11817e5ddc8fc73/transformed/fragment-1.6.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.7.2] /home/poojabharadva/.gradle/caches/transforms-3/e094d439859e8bcf10187e9d05bd0676/transformed/activity-1.7.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.7.2] /home/poojabharadva/.gradle/caches/transforms-3/3191ba8aa612d4c9e54f726b87a844b2/transformed/activity-ktx-1.7.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/1809488a0d3db92f557eae8782953544/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
@@ -25,6 +34,7 @@ MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/poojabharad
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/433c7a03da85c69371f058c10113c46a/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/711a6af9bbe464182c519e0ac44c761c/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/ec8c12f93308f747824dbf9b608be1ae/transformed/lifecycle-livedata-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/192dbce981dc442508135e69b1ea83e4/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/02a4f429cd51463ef35f5f9050997a34/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/poojabharadva/.gradle/caches/transforms-3/9f5b073c6fb983e8abca10a1eda92f75/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
@@ -33,12 +43,14 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] /home/pooj
 MERGED from [androidx.core:core-ktx:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/839fd82e608930b793079bae4e3570bc/transformed/core-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/poojabharadva/.gradle/caches/transforms-3/c1e5abdaf3359c15dc09178c17c694e5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b2e617677a2ec29121e87eed3715a673/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.transition:transition:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/586c9a3a7108241c182d9487d1085913/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b9c7e1d375e9c5cb02d297fa26bf4f8b/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/775ee96a15959843ec9ca689a381ab5d/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d7314a04b8b6d0cdce85f6a901f10d89/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/ea0ccbf0a3b9731337aaedc8866d0f0d/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/655a4f513ac4e8330bbdb62534e9c84c/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/ee00f570d59d12cb826103d5e7bb3e95/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.4.1] /home/poojabharadva/.gradle/caches/transforms-3/73d4d99075a75388df7bf68162f304c5/transformed/transition-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/5e5446d4cc92b64c92c5d417fddf20d0/transformed/lifecycle-runtime-2.6.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/27a138fd643171c5bcf3f22f60446008/transformed/lifecycle-viewmodel-2.6.1/AndroidManifest.xml:17:1-22:12
@@ -57,22 +69,22 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/p
 MERGED from [androidx.print:print:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/51959caacfb4df221ffd5a0010c2b6dd/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/poojabharadva/.gradle/caches/transforms-3/d4128992cb5e2f0896e610bf332056fb/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.dagger:dagger-lint-aar:2.46.1] /home/poojabharadva/.gradle/caches/transforms-3/39571682156b3c6f5ba4d29f383a7dac/transformed/dagger-lint-aar-2.46.1/AndroidManifest.xml:16:1-19:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
-INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
+INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
 	package
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-50:12
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:1-70:12
 		INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:2:11-69
@@ -88,28 +100,40 @@ MERGED from [com.google.android.gms:play-services-maps:18.1.0] /home/poojabharad
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/cfb9113a66906d2bc31927722914be7d/transformed/play-services-maps-18.1.0/AndroidManifest.xml:23:5-79
 	android:name
 		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:6:22-76
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:7:5-81
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:7:22-78
-uses-permission#android.permission.READ_MEDIA_IMAGES
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:8:5-76
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:8:22-73
-uses-permission#android.permission.CAMERA
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:9:5-65
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:9:22-62
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:10:5-79
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:7:5-79
 	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:10:22-76
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:9:22-74
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:10:5-77
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:10:22-74
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:11:22-73
+uses-permission#android.permission.CAMERA
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:12:5-65
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:12:22-62
+uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:13:5-85
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:13:22-82
 uses-feature#android.hardware.camera
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:12:5-60
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:15:5-60
 	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:12:19-57
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:15:19-57
 application
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:14:5-48:19
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:17:5-68:19
 MERGED from [com.google.android.material:material:1.9.0] /home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.9.0] /home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/poojabharadva/.gradle/caches/transforms-3/d6fe85d198c215c07fecb48f2fed6d78/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -128,6 +152,8 @@ MERGED from [androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/tr
 MERGED from [androidx.emoji2:emoji2:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/63fb77c07e54b83c3ba97d48aeb8dc41/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
 MERGED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/poojabharadva/.gradle/caches/transforms-3/9c7b80c3d5d817f600ef1ebeb454670f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
@@ -139,71 +165,117 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/poojabharadva/.gradle
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:21:9-35
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:19:9-41
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:22:9-41
 	android:fullBackupContent
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:17:9-54
-	android:roundIcon
 		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:20:9-54
+	android:roundIcon
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:23:9-54
 	tools:targetApi
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:23:9-29
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:26:9-29
 	android:icon
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:18:9-43
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:21:9-43
 	android:allowBackup
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:15:9-35
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:18:9-35
 	android:theme
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:22:9-60
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:25:9-60
 	android:dataExtractionRules
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:16:9-65
-activity#com.example.activityresultlauncher.LocationTrackingActivity
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:24:9-26:40
-	android:exported
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:26:13-37
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:25:13-53
-meta-data#com.google.android.geo.API_KEY
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:28:9-30:52
-	android:value
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:30:13-49
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:29:13-58
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:19:9-65
 activity#com.example.activityresultlauncher.ImagePiker
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:32:9-34:39
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:27:9-29:40
 	android:exported
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:34:13-36
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:33:13-39
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:28:13-39
 activity#com.example.activityresultlauncher.LocationActivity
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:35:9-43:20
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:30:9-32:40
 	android:exported
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:37:13-36
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:36:13-45
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:38:13-42:29
-action#android.intent.action.MAIN
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:39:17-69
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:39:25-66
-category#android.intent.category.LAUNCHER
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:41:17-77
-	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:41:27-74
-service#com.example.activityresultlauncher.LocationUpdatesService
-ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:44:9-47:72
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:31:13-45
+activity#com.example.activityresultlauncher.GeofenceActivity
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:33:9-37:67
 	android:label
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:46:13-51
-	android:permission
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:47:13-69
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:36:13-60
+	android:exported
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:35:13-37
+	android:theme
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:37:13-64
 	android:name
-		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:45:13-51
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:34:13-45
+activity#com.example.activityresultlauncher.LocationTrackingActivity
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:38:9-40:40
+	android:exported
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:39:13-53
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:42:9-44:52
+	android:value
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:44:13-49
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:43:13-58
+activity#com.example.activityresultlauncher.LocationGeofenceActivity
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:46:9-48:39
+	android:exported
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:48:13-36
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:47:13-53
+activity#com.example.activityresultlauncher.UiElementActivity
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:49:9-57:20
+	android:exported
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:51:13-36
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:50:13-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:52:13-56:29
+action#android.intent.action.MAIN
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:53:17-69
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:53:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:55:17-77
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:55:27-74
+receiver#com.example.activityresultlauncher.GeofenceBroadcastReceiver
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:59:9-62:40
+	android:enabled
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:61:13-35
+	android:exported
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:62:13-37
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:60:13-54
+service#com.example.activityresultlauncher.LocationUpdatesService
+ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:64:9-67:72
+	android:label
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:66:13-51
+	android:permission
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:67:13-69
+	android:name
+		ADDED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml:65:13-51
 uses-sdk
 INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
 INJECTED from /home/poojabharadva/AndroidStudioProjects/LiveLocationTracking/app/src/main/AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:8.0.1] /home/poojabharadva/.gradle/caches/transforms-3/7c8b5a41e70002c87210ef8c6c297b8f/transformed/viewbinding-8.0.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:8.0.1] /home/poojabharadva/.gradle/caches/transforms-3/7c8b5a41e70002c87210ef8c6c297b8f/transformed/viewbinding-8.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/c20819eee454c16185449e948f5198a4/transformed/navigation-common-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/c20819eee454c16185449e948f5198a4/transformed/navigation-common-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/2d768735dbdfac67395e970e8f26da84/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/2d768735dbdfac67395e970e8f26da84/transformed/navigation-common-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/dd89cb285045325b40f9867870757541/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/dd89cb285045325b40f9867870757541/transformed/navigation-runtime-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/fa05c694ac1eced5a3c1c675518cd436/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/fa05c694ac1eced5a3c1c675518cd436/transformed/navigation-runtime-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/153df0818bcde535f62358e07bf07759/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/153df0818bcde535f62358e07bf07759/transformed/navigation-fragment-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/349517486043ccce11e7455338871e94/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/349517486043ccce11e7455338871e94/transformed/navigation-fragment-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/bf2624a680e6f6d206b1f204de97ca70/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/bf2624a680e6f6d206b1f204de97ca70/transformed/navigation-ui-ktx-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/d1c1b973e7a31db1fc47acfac150d50c/transformed/navigation-ui-2.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.6.0] /home/poojabharadva/.gradle/caches/transforms-3/d1c1b973e7a31db1fc47acfac150d50c/transformed/navigation-ui-2.6.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.9.0] /home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.9.0] /home/poojabharadva/.gradle/caches/transforms-3/c80953aa69ba19118fb5d0f84d41471c/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/poojabharadva/.gradle/caches/transforms-3/d6fe85d198c215c07fecb48f2fed6d78/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
@@ -226,8 +298,10 @@ MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /home/poojabhara
 MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /home/poojabharadva/.gradle/caches/transforms-3/862d734ddcadb5f85f7ffdb7244c64ee/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /home/poojabharadva/.gradle/caches/transforms-3/838a506cc5acc8a19004f5c96db2390c/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.5.1] /home/poojabharadva/.gradle/caches/transforms-3/2c2ec6f1b58a781355ee54f14cba70bb/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.5.1] /home/poojabharadva/.gradle/caches/transforms-3/2c2ec6f1b58a781355ee54f14cba70bb/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/a767ba34704e08b5148fd6da7ea91ff0/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/a767ba34704e08b5148fd6da7ea91ff0/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/4b8702ac06368dcde11817e5ddc8fc73/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0] /home/poojabharadva/.gradle/caches/transforms-3/4b8702ac06368dcde11817e5ddc8fc73/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.7.2] /home/poojabharadva/.gradle/caches/transforms-3/e094d439859e8bcf10187e9d05bd0676/transformed/activity-1.7.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.7.2] /home/poojabharadva/.gradle/caches/transforms-3/e094d439859e8bcf10187e9d05bd0676/transformed/activity-1.7.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-ktx:1.7.2] /home/poojabharadva/.gradle/caches/transforms-3/3191ba8aa612d4c9e54f726b87a844b2/transformed/activity-ktx-1.7.2/AndroidManifest.xml:20:5-44
@@ -244,6 +318,8 @@ MERGED from [androidx.loader:loader:1.0.0] /home/poojabharadva/.gradle/caches/tr
 MERGED from [androidx.loader:loader:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/711a6af9bbe464182c519e0ac44c761c/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/ec8c12f93308f747824dbf9b608be1ae/transformed/lifecycle-livedata-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/ec8c12f93308f747824dbf9b608be1ae/transformed/lifecycle-livedata-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/192dbce981dc442508135e69b1ea83e4/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/192dbce981dc442508135e69b1ea83e4/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/02a4f429cd51463ef35f5f9050997a34/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/02a4f429cd51463ef35f5f9050997a34/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:21:5-44
@@ -260,18 +336,22 @@ MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/poojabharadva/.grad
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/poojabharadva/.gradle/caches/transforms-3/c1e5abdaf3359c15dc09178c17c694e5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b2e617677a2ec29121e87eed3715a673/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b2e617677a2ec29121e87eed3715a673/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/586c9a3a7108241c182d9487d1085913/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/586c9a3a7108241c182d9487d1085913/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b9c7e1d375e9c5cb02d297fa26bf4f8b/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/b9c7e1d375e9c5cb02d297fa26bf4f8b/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/775ee96a15959843ec9ca689a381ab5d/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/775ee96a15959843ec9ca689a381ab5d/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d7314a04b8b6d0cdce85f6a901f10d89/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/d7314a04b8b6d0cdce85f6a901f10d89/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/ea0ccbf0a3b9731337aaedc8866d0f0d/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/poojabharadva/.gradle/caches/transforms-3/ea0ccbf0a3b9731337aaedc8866d0f0d/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/655a4f513ac4e8330bbdb62534e9c84c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/655a4f513ac4e8330bbdb62534e9c84c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/ee00f570d59d12cb826103d5e7bb3e95/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.1.0] /home/poojabharadva/.gradle/caches/transforms-3/ee00f570d59d12cb826103d5e7bb3e95/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /home/poojabharadva/.gradle/caches/transforms-3/73d4d99075a75388df7bf68162f304c5/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /home/poojabharadva/.gradle/caches/transforms-3/73d4d99075a75388df7bf68162f304c5/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/5e5446d4cc92b64c92c5d417fddf20d0/transformed/lifecycle-runtime-2.6.1/AndroidManifest.xml:5:5-44
@@ -378,6 +458,18 @@ ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gra
 		ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
 	android:name
 		ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/poojabharadva/.gradle/caches/transforms-3/3375b5880725648b92d538697a011bd8/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/poojabharadva/.gradle/caches/transforms-3/c70f067c145f38b74f1fa219c49074e7/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
 permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.10.1] /home/poojabharadva/.gradle/caches/transforms-3/c6dc90fc23a5e1e9be5a700e975e07f9/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
