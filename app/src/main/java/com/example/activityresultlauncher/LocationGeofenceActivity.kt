@@ -43,7 +43,7 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
     private var mCurrLocationMarker: Marker? = null
     private var latitudeCurrent = 0.0
     private var longitudeCurrent = 0.0
-    private var mHandler: IncomingMessageHandler? = null
+    lateinit var mHandler: IncomingMessageHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -180,9 +180,7 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                 }
                 return
             }
-           /* MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION -> {
-                    if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-
+            MY_PERMISSIONS_REQUEST_BACKGROUND_LOCATION -> {
                         if (ContextCompat.checkSelfPermission(
                                 this,
                                 android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
@@ -204,11 +202,11 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
                             ).show()
 
                         }
-                    } else {
+                     else {
                         Toast.makeText(this, "permission Background denied", Toast.LENGTH_LONG).show()
                     }
                     return
-            }*/
+            }
         }
     }
 
@@ -217,7 +215,7 @@ class LocationGeofenceActivity : AppCompatActivity(), OnMapReadyCallback, OnMapL
     override fun onDestroy() {
         super.onDestroy()
         list.clear()
-        mHandler = null
+       // mHandler = null
 
     }
 

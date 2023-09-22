@@ -31,7 +31,7 @@ class LocationUpdatesService:JobService(), LocationUpdatesComponent.ILocationPro
     override fun onCreate() {
         Log.e(TAG, "created...............")
         locationUpdatesComponent = LocationUpdatesComponent( this)
-        locationUpdatesComponent!!.onCreate(this)
+        locationUpdatesComponent?.onCreate(this)
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
@@ -39,7 +39,7 @@ class LocationUpdatesService:JobService(), LocationUpdatesComponent.ILocationPro
         mActivityMessenger =
             intent.getParcelableExtra(LocationGeofenceActivity.MESSENGER_INTENT_KEY)
         /** hey request for location updates*/
-        locationUpdatesComponent!!.onStart()
+        locationUpdatesComponent?.onStart()
         return START_STICKY
 
 

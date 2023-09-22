@@ -49,13 +49,22 @@
         android:testOnly="true"
         android:theme="@style/Theme.ActivityResultLauncher" >
         <activity
+            android:name="com.example.activityresultlauncher.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.activityresultlauncher.TestActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.activityresultlauncher.ImagePiker"
+            android:exported="false" />
+        <activity
+            android:name="com.example.activityresultlauncher.UiElementActivity"
             android:exported="false" />
         <activity
             android:name="com.example.activityresultlauncher.LocationActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.activityresultlauncher.GeofenceActivity"
+            android:name="com.example.activityresultlauncher.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_geofence"
             android:theme="@style/Theme.ActivityResultLauncher" />
@@ -68,11 +77,12 @@
             android:value="@string/MAPS_API_KEY" />
 
         <activity
-            android:name="com.example.activityresultlauncher.LocationGeofenceActivity"
+            android:name="com.example.activityresultlauncher.GeofenceActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.activityresultlauncher.UiElementActivity"
-            android:exported="true" >
+            android:name="com.example.activityresultlauncher.LocationGeofenceActivity"
+            android:exported="true"
+            android:label="@string/title_activity_geofence" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

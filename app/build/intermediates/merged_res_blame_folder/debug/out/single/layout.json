@@ -1,11 +1,35 @@
 [
     {
-        "merged": "com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_ui_element.xml",
-        "source": "com.example.activityresultlauncher.app-main-52:/layout/activity_ui_element.xml"
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_test.xml",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_test.xml"
+    },
+    {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_result.xml",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_result.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_location.xml",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_location.xml"
+    },
+    {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/fragment_test.xml",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/fragment_test.xml"
+    },
+    {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_geofence.xml",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_geofence.xml"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_main2.xml",
+        "source": "com.example.activityresultlauncher.app-main-52:/layout/activity_main2.xml"
+    },
+    {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/button_layout.xml",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/button_layout.xml"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/fragment_first.xml",
+        "source": "com.example.activityresultlauncher.app-main-52:/layout/fragment_first.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_ui_element.xml",
@@ -20,10 +44,6 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/fragment_map.xml"
     },
     {
-        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_geofence.xml",
-        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_geofence.xml"
-    },
-    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/activity_main.xml",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_main.xml"
     },
@@ -34,9 +54,5 @@
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/raw_near_place.xml",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/raw_near_place.xml"
-    },
-    {
-        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-mergeDebugResources-49:/layout/button_layout.xml",
-        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/button_layout.xml"
     }
 ]

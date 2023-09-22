@@ -3142,7 +3142,6 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
-id SecondFragment
 id TOP_END
 id TOP_START
 id accelerate
@@ -3182,8 +3181,6 @@ id accessibility_custom_action_9
 id actionDown
 id actionDownUp
 id actionUp
-id action_FirstFragment_to_SecondFragment
-id action_SecondFragment_to_FirstFragment
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -3236,8 +3233,10 @@ id bounceEnd
 id bounceStart
 id btn
 id btnAction
+id btnActionFragment
 id btnCancel
 id btnSave
+id btnSent
 id btn_g
 id buttonPanel
 id cache_measures
@@ -3315,6 +3314,7 @@ id east
 id edge
 id edit_query
 id elastic
+id email
 id embed
 id end
 id endToStart
@@ -3339,7 +3339,9 @@ id flip
 id floating
 id forever
 id formData
+id fragment_container_view
 id fragment_container_view_tag
+id frameLayout
 id frost
 id fullscreen_header
 id ghost_view
@@ -3380,6 +3382,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id leave
 id left
 id leftToRight
 id legacy
@@ -3500,6 +3503,7 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id ratingLayout
 id ratio
 id rectangles
 id report_drawn
@@ -3508,6 +3512,7 @@ id right
 id rightToLeft
 id right_icon
 id right_side
+id rootView
 id rounded
 id row_index_key
 id rtl
@@ -3784,6 +3789,9 @@ layout activity_location
 layout activity_location_permission
 layout activity_location_tracking
 layout activity_main
+layout activity_main2
+layout activity_result
+layout activity_test
 layout activity_ui_element
 layout button_layout
 layout custom_dialog
@@ -3802,7 +3810,9 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_first
 layout fragment_map
+layout fragment_test
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3865,6 +3875,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
@@ -3949,6 +3960,7 @@ string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string imagepiker
 string item_view_role_description
+string leave
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
 string m3_ref_typeface_plain_medium

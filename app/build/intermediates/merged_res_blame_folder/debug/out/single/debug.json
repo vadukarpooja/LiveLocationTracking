@@ -64,6 +64,14 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_fragment_test.xml.flat",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/fragment_test.xml"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-merged_res-50:/layout_activity_main2.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-52:/layout/activity_main2.xml"
+    },
+    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/mipmap-mdpi_ic_launcher.webp.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/mipmap-mdpi/ic_launcher.webp"
     },
@@ -88,12 +96,12 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.activityresultlauncher.app-merged_res-50:/layout_activity_ui_element.xml.flat",
-        "source": "com.example.activityresultlauncher.app-main-52:/layout/activity_ui_element.xml"
-    },
-    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_activity_main.xml.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_activity_test.xml.flat",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_test.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -116,15 +124,31 @@
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/drawable/ic_launcher_background.xml"
     },
     {
+        "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_activity_result.xml.flat",
+        "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_result.xml"
+    },
+    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_raw_near_place.xml.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/raw_near_place.xml"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-merged_res-50:/navigation_nav_graph.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-52:/navigation/nav_graph.xml"
     },
     {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_activity_location.xml.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_location.xml"
     },
     {
+        "merged": "com.example.activityresultlauncher.app-merged_res-50:/menu_menu_item.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-52:/menu/menu_item.xml"
+    },
+    {
         "merged": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-merged_res-50:/layout_activity_ui_element.xml.flat",
         "source": "/home/poojabharadva/.gradle/daemon/8.0.1/com.example.activityresultlauncher.app-main-52:/layout/activity_ui_element.xml"
+    },
+    {
+        "merged": "com.example.activityresultlauncher.app-merged_res-50:/layout_fragment_first.xml.flat",
+        "source": "com.example.activityresultlauncher.app-main-52:/layout/fragment_first.xml"
     }
 ]
