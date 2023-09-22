@@ -23,15 +23,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityResultLauncher"
-        tools:targetApi="31">
+        tools:targetApi="tiramisu">
+        <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
         <activity
             android:name=".ImagePiker"
+            android:exported="false" />
+        <activity
+            android:name=".UiElementActivity"
             android:exported="false" />
         <activity
             android:name=".LocationActivity"
             android:exported="false" />
         <activity
-            android:name=".GeofenceActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_geofence"
             android:theme="@style/Theme.ActivityResultLauncher" />
@@ -44,10 +53,11 @@
             android:value="@string/MAPS_API_KEY" />
 
         <activity
-            android:name=".LocationGeofenceActivity"
+            android:name=".GeofenceActivity"
             android:exported="true" />
         <activity
-            android:name=".UiElementActivity"
+            android:name=".LocationGeofenceActivity"
+            android:label="@string/title_activity_geofence"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -24,6 +24,14 @@
        android:orientation="vertical"
        android:padding="10dp">
    </androidx.appcompat.widget.LinearLayoutCompat>
+
+       <androidx.appcompat.widget.LinearLayoutCompat
+           android:id="@+id/ratingLayout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"/>
+
+
       </androidx.appcompat.widget.LinearLayoutCompat>
    </androidx.core.widget.NestedScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
@@ -16,6 +18,7 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.RatingBar
+import android.widget.RatingBar.OnRatingBarChangeListener
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -24,22 +27,22 @@ import androidx.core.view.setPadding
 import com.example.activityresultlauncher.databinding.ActivityUiElementBinding
 import com.example.activityresultlauncher.databinding.ButtonLayoutBinding
 import com.example.activityresultlauncher.model.Option
-import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import java.util.jar.JarEntry
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 
 class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener,
     RadioGroup.OnCheckedChangeListener {
     private lateinit var binding: ActivityUiElementBinding
     lateinit var btnBinding: ButtonLayoutBinding
-    val jsonObject = JsonObject()
-    val jsonArrayCheckBox = JsonArray()
-    var chekBoxValue: String = ""
-    var genderValue: String = ""
+    var jsonObject = JsonObject()
+    private val jsonArrayCheckBox = JsonArray()
+    private var chekBoxValue: String = ""
+    private var genderValue: String = ""
+    private val arrayListRadioPosition: ArrayList<Int> = ArrayList()
+    private val checkBoxPosition:ArrayList<Int> = ArrayList()
+    val ratingValue:Float? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,12 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
+            val layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            layoutParams.setMargins(30, 30, 30, 30)
+            val ratingTitle = TextView(applicationContext)
             params.setMargins(25, 20, 25, 0)
             if (Utils.list()[inputPosition].inputType == "text") {
                 val textTitle = TextView(applicationContext)
@@ -71,47 +80,6 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                 arrayListPosition.add(inputPosition)
                 binding.formData.addView(edtLiL, params)
             }
-            if (Utils.list()[inputPosition].inputType == "number") {
-                val textTitle = TextView(applicationContext)
-                textTitle.text = Utils.list()[inputPosition].subLocality
-                binding.formData.addView(textTitle)
-                val edtLiL = LinearLayout(applicationContext)
-                edtLiL.orientation = LinearLayout.VERTICAL
-                val editTextNumber = EditText(applicationContext)
-                /* editText.layoutParams = params*/
-                editTextNumber.hint = Utils.list()[inputPosition].subLocality
-                editTextNumber.inputType = InputType.TYPE_CLASS_PHONE
-                editTextNumber.textSize = 12f
-                editTextNumber.setPadding(28)
-                editTextNumber.background = resources.getDrawable(R.drawable.edt_bg)
-                edtLiL.addView(editTextNumber)
-                binding.formData.addView(edtLiL, params)
-                editTextNumber.addTextChangedListener(object : TextWatcher {
-                    override fun onTextChanged(cs: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
-                        jsonObject.addProperty(
-                            Utils.list()[inputPosition].subLocality,
-                            editTextNumber.text.toString()
-                        )
-                        Log.e(
-                            javaClass.simpleName,
-                            "onTextChanged: " + editTextNumber.text.toString()
-                        )
-                    }
-
-                    override fun beforeTextChanged(
-                        arg0: CharSequence,
-                        arg1: Int,
-                        arg2: Int,
-                        arg3: Int
-                    ) {
-                        Log.e(javaClass.simpleName, "beforeTextChanged: $arg0")
-                    }
-
-                    override fun afterTextChanged(arg0: Editable) {
-                        Log.e(javaClass.simpleName, "afterTextChanged: ${arg0}")
-                    }
-                })
-            }
             if (Utils.list()[inputPosition].inputType == "radio") {
                 val titleGender = TextView(applicationContext)
                 titleGender.text = Utils.list()[inputPosition].subLocality
@@ -120,7 +88,6 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                 val radioGroup = RadioGroup(applicationContext)
                 for (gender in Utils.list()[inputPosition].option.indices) {
                     val radioButton = RadioButton(applicationContext)
-                    //radioGroup.layoutParams = params
                     radioButton.text = Utils.list()[inputPosition].option[gender].title
                     radioGroup.addView(radioButton)
                 }
@@ -187,13 +154,16 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                 jsonObject.add(chekBoxValue, jsonArrayCheckBox)
             }
             if (Utils.list()[inputPosition].inputType == "rating") {
-                val ratingTitle = TextView(applicationContext)
+
                 ratingTitle.text = Utils.list()[inputPosition].subLocality
                 val rating = RatingBar(applicationContext)
-                rating.numStars = 5
-                rating.stepSize = 1.0f
+                rating.stepSize = 0.5f
+                rating.layoutParams = layoutParams
                 binding.formData.addView(ratingTitle)
-                binding.formData.addView(rating, params)
+                rating.setOnRatingBarChangeListener { _, ratingValue, _ ->
+                    jsonObject.addProperty("rating", ratingValue)
+                }
+                binding.ratingLayout.addView(rating)
             }
             var count = 0
             btnBinding.btnSave.setOnClickListener {
@@ -211,21 +181,32 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     jsonObject.addProperty(textLabel, textInput.text.toString())
                     if (textInput.text.toString().isNotEmpty()) {
                         count++
-                        Log.e(javaClass.simpleName, "onCreate: $count")
                         if (count == arrayListPosition.size) {
-                            if (arrayPositionSpinner.size == 0) {
-                                Toast.makeText(this, "Select At list one item", Toast.LENGTH_SHORT)
-                                    .show()
-                            } else {
-                                Log.e(javaClass.simpleName, "onCreate: $jsonObject")
-                                Toast.makeText(
-                                    applicationContext,
-                                    "$jsonObject",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                            if (isValid(type, textInput.text.toString())) {
+                                if (arrayListRadioPosition.size <=0){
+                                    Toast.makeText(this, "Select At list one radioGroup item ", Toast.LENGTH_SHORT).show()
+                                }
+                                else if (checkBoxPosition.size<=0){
+                                    Toast.makeText(this, "Select At list one checkBox item ", Toast.LENGTH_SHORT).show()
+                                }
+                                else if (arrayPositionSpinner.size == 0) {
+                                    Toast.makeText(
+                                        this,
+                                        "Select At list one item",
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show()
+                                } else {
+                                    Log.e(javaClass.simpleName, "onCreate: $jsonObject")
+                                    Toast.makeText(applicationContext, "$jsonObject", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this, ImagePiker::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
                             }
                         }
-                    } else if (textInput.text.toString().isEmpty()) {
+                        Log.e(javaClass.simpleName, "onCreate: $count")
+                    } else if (textInput.text.isEmpty()) {
                         Toast.makeText(
                             applicationContext,
                             "All Field is Require",
@@ -234,11 +215,10 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     }
                 }
             }
-
         }
         btnBinding.btnCancel.setOnClickListener {
-            Toast.makeText(applicationContext, "Cancel", Toast.LENGTH_SHORT).show()
             finish()
+            Toast.makeText(applicationContext, "Cancel", Toast.LENGTH_SHORT).show()
         }
 
         binding.layout.addView(btnBinding.root)
@@ -246,13 +226,38 @@ class UiElementActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        jsonArrayCheckBox.add(buttonView?.text.toString())
+        if (isChecked) {
+            jsonArrayCheckBox.add(buttonView?.text.toString())
+            if (buttonView != null) {
+                checkBoxPosition.add(buttonView.id)
+                Log.e(javaClass.simpleName, "onCheckedChanged: "+buttonView.id )
+            }
+        }
         jsonObject.add(chekBoxValue, jsonArrayCheckBox)
+
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         val selectedRadioText = binding.root.findViewById<RadioButton?>(checkedId).text.toString()
         jsonObject.addProperty(genderValue, selectedRadioText)
+        arrayListRadioPosition.add(checkedId)
+        Log.e(javaClass.simpleName, "RadioGroup$checkedId")
+    }
+
+    fun isValid(inputType: String, value: String): Boolean {
+        when (inputType) {
+            "text" -> {
+                if (value.isEmpty()) {
+                    Toast.makeText(this, "Mobile number is Require", Toast.LENGTH_SHORT).show()
+                }
+                if (value.length != 10) {
+                    Toast.makeText(this, "Mobile number is not valid ", Toast.LENGTH_SHORT).show()
+                } else {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
 }
